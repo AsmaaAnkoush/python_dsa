@@ -21,3 +21,9 @@ class Stack:
             self.elements.remove(self.elements[-1])
             self.length -= 1
             return poped_element
+    
+    def peek(self):
+        '''This method returns the value of top element in the stack without removing it from the stack'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        return self.elements[-1]
