@@ -33,3 +33,11 @@ class Queue:
             self.length -= 1
         if self.head is None:
             self.tail = None
+
+    def front(self):
+        '''This method returns the value of element at the head of the queue without removing it'''
+        #Time Complexity O(1)
+        #Space complexity O(1)
+        if self.head == None:
+            raise IndexError ("The Queue is Empty")
+        return self.head.value
