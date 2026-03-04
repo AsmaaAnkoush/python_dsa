@@ -24,3 +24,9 @@ class Queue:
         self.elments.add_first(element)
         return element
 
+    def size(self) -> int:
+        '''this function return the size of queue'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        return self.elments.length
+
