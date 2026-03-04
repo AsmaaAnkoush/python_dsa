@@ -78,3 +78,15 @@ class CircularLinkedList:
                 pass
             current = current.next
         return False
+    
+    def get_at(self, index):
+        '''This function returns the data at the given index'''
+        #Time complexity = O(n)
+        #Space complexity = O(1)
+        if index >= self.length or index < 0 :
+            raise IndexError("Index Out Of Range")
+        else:
+            current:CircularNode = self.head
+            for _ in range (index):
+                current = current.next
+            return current.data
