@@ -18,3 +18,14 @@ def test_insert():
     assert cll.length == 2
     cll.insert(15)
     assert cll.length == 3
+
+def test_delete():
+    cll = CircularLinkedList()
+    cll.insert(10)
+    cll.insert(15)
+    cll.insert(20)
+    assert cll.delete(11) is False
+    assert cll.delete(10) is True
+    assert cll.delete(15) is True
+    assert cll.length is 1
+
