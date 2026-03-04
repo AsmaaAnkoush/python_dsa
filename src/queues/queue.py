@@ -55,3 +55,16 @@ class Queue:
         self.head = None
         self.tail = None
         self.length = 0
+
+    def __str__(self):
+        '''This method for human-readable representation'''
+        #Time Complexity O(n)
+        #Space complexity O(1)
+        current_head = self.head
+        string: str = "head "
+        while current_head:
+            string = string + " -> "
+            string = string + f"{current_head.value}"
+            current_head = current_head.next
+        string = string + " <- tail"
+        return string
