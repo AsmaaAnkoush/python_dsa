@@ -136,3 +136,17 @@ class LinkedList:
             new_list.append_end(new_value)
             current = current.next
         return new_list
+    
+    def where (self, action) -> LinkedList:
+        '''this function returns a new linked list containing values for which action(value) is True, leaving the original list unchanged'''
+        #Time complexity = O(n^2)
+        #Space complexity = O(n)
+        current: Node = self.head
+        new_list: LinkedList = LinkedList()
+        while current:
+            if (action)(current.value) is True:
+                new_list.append_end(current.value)
+            else:
+                pass
+            current = current.next
+        return new_list
