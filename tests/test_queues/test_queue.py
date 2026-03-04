@@ -10,3 +10,13 @@ def test_queue_node_creation():
     assert queue.head is None
     assert queue.tail is None
     assert queue.length == 0
+
+def test_enqueue():
+    queue: Queue = Queue()
+    queue.enqueue(10)
+    queue.enqueue(20)
+    queue.enqueue(30)
+
+    assert queue.head.value == 10
+    assert queue.tail.value == 30
+    assert queue.length == 3
