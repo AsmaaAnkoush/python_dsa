@@ -18,3 +18,12 @@ def test_insert_at_head():
 
     assert dll.head.value is 5
     assert dll.length == 2
+
+def test_insert_at_tail():
+    dll: DoublyLinkedList = DoublyLinkedList()
+    dll.insert_at_head(10)
+    dll.insert_at_head(5)
+    assert dll.tail.value is 10
+    dll.insert_at_tail(20)
+    assert dll.tail.value is 20
+    assert dll.length == 3
