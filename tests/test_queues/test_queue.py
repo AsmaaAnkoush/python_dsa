@@ -53,3 +53,12 @@ def test_size():
     assert queue.size() == 3
     queue.dequeue()
     assert queue.size() == 2
+
+def test_clear():
+    queue: Queue = Queue()
+    queue.enqueue(10)
+    queue.enqueue(20)
+    queue.enqueue(30)
+    assert queue.size() == 3
+    queue.clear()
+    assert queue.size() == 0
