@@ -94,3 +94,16 @@ def test_map():
     assert new_list.index_of(2) is 0
     assert new_list.index_of(4) is 1
     assert new_list.index_of(6) is 2
+
+def test_where():
+    ll = LinkedList()
+    ll.append_end(1)
+    ll.append_end(2)
+    ll.append_end(3)
+    ll.append_end(4)
+
+    evens = ll.where(lambda x: x % 2 == 0)
+
+    assert evens.length == 2
+    assert evens.index_of(2) == 0
+    assert evens.index_of(4) == 1

@@ -138,7 +138,7 @@ class LinkedList:
         return new_list
     
     def where (self, action) -> LinkedList:
-        '''this function returns a new linked list containing values for which action(value) is True, leaving the original list unchanged'''
+        '''this method returns a new linked list containing values for which action(value) is True, leaving the original list unchanged'''
         #Time complexity = O(n^2)
         #Space complexity = O(n)
         current: Node = self.head
