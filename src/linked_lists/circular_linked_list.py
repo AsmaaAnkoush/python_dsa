@@ -90,3 +90,9 @@ class CircularLinkedList:
             for _ in range (index):
                 current = current.next
             return current.data
+    
+    def size(self) -> int:
+        '''This method returns length of circular linked list'''
+        #Time complexity = O(1)
+        #Space complexity = O(1)
+        return self.length
