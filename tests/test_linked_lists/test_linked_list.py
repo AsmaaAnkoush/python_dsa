@@ -17,3 +17,11 @@ def test_add_first_and_length():
     ll.add_first(30)
 
     assert ll.length == 3
+
+def test_append_end_and_length():
+    ll = LinkedList()
+    ll.append_end(10)
+    ll.append_end(20)
+    ll.append_end(30)
+
+    assert ll.length == 3
