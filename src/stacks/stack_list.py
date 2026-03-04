@@ -27,3 +27,9 @@ class Stack:
         #Time Complexity is O(1)
         #Space complexity is o(1)
         return self.elements[-1]
+
+    def size(self) -> int:
+        '''This method returns the size of the stack'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        return self.length
