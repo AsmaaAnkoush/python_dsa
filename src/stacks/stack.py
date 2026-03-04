@@ -16,3 +16,15 @@ class Stack:
         node.next = self.top
         self.top = node
         self.length += 1
+    
+    def pop (self):
+        '''This method pops the top element from the stack, and returns the removed value'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        if self.top == None:
+            raise IndexError ("The Stack is Empty")
+        else:
+            poped_data = self.top.value
+            self.top = self.top.next
+            self.length -= 1
+            return poped_data
