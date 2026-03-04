@@ -23,3 +23,12 @@ class Stack:
         element = self.elments.remove_at(self.elments.length-1)
         self.elments.append_end(element)
         return element
+
+    def is_empty(self) -> bool:
+        '''This method checks if the stack is empty or not'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        if self.elments.length == 0:
+            return True
+        else:
+            return False
