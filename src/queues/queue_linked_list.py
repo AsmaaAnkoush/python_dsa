@@ -16,4 +16,11 @@ class Queue:
         #Space complexity O(1)
         return self.elments.remove_at(0)
     
+    def front(self):
+        '''this function returnes the element in the head of queue'''
+        #Time Complexity O(n)
+        #Space complexity O(1)
+        element = self.elments.remove_at(0)
+        self.elments.add_first(element)
+        return element
 
