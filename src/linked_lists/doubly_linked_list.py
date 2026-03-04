@@ -58,3 +58,17 @@ class DoublyLinkedList:
             node.next = current.next
             current.next = node
             self.length += 1
+
+    def containes(self, data) -> bool:
+        '''This method checks whether a value exists in the doubly linked list'''
+        #Time complexity = O(n)
+        #Space complexity = O(1)
+        current: DoublyNode = self.head
+        if self.length == 0:
+            return False
+        else:
+            while current:
+                if current.value == data:
+                    return True
+                current = current.next
+            return False
