@@ -42,3 +42,10 @@ class Stack:
             return True
         else:
             return False
+    
+    def clear(self):
+        '''This method empties the stack'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        self.length = 0
+        self.elements = []
