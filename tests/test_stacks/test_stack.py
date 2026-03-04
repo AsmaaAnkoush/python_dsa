@@ -62,3 +62,12 @@ def test_size():
     stack.push(30)
     assert stack.size() == 3
     assert empty_stack.size() == 0
+
+def test_clear():
+    stack: Stack = Stack()
+    stack.push(10)
+    stack.push(20)
+    stack.push(30)
+    assert stack.size() == 3
+    stack.clear()
+    assert stack.size() == 0
