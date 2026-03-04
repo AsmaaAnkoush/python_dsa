@@ -63,3 +63,11 @@ def test_contains():
 
     assert ll.contains("a") is True
     assert ll.contains("z") is False
+
+def test_index_of():
+    ll = LinkedList()
+    ll.append_end(5)
+    ll.append_end(10)
+
+    assert ll.index_of(10) == 1
+    assert ll.index_of(999) == -1
