@@ -107,3 +107,10 @@ def test_where():
     assert evens.length == 2
     assert evens.index_of(2) == 0
     assert evens.index_of(4) == 1
+
+def test_str_representation():
+    ll = LinkedList()
+    ll.append_end(1)
+    ll.append_end(2)
+
+    assert str(ll)
