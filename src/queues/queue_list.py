@@ -33,3 +33,10 @@ class Queue:
         #Time Complexity is O(1)
         #Space complexity is o(1)
         return self.length
+
+    def clear(self):
+        '''This method empties the queue'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        self.elements = []
+        self.length = 0
