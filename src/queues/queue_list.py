@@ -9,3 +9,13 @@ class Queue:
         #Space complexity is o(1), o(n) if list resized
         self.elements.append(data)
         self.length += 1
+    
+    def dequeue(self):
+        '''This method removes a node from the front of the queue'''
+        #Time Complexity O(1)
+        #Space complexity O(1)
+        if self.elements == []:
+            raise IndexError ("The Stack is Empty")
+        else:
+            self.elements.pop(0)
+            self.length -= 1
