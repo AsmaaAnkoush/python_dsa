@@ -96,3 +96,16 @@ class CircularLinkedList:
         #Time complexity = O(1)
         #Space complexity = O(1)
         return self.length
+    
+    def print_list(self):
+        '''This method for human-readable representation'''
+        if self.head == None:
+            return "Empty List"
+        string: str = "head -> "
+        current: CircularNode = self.head
+        string = string + f"{current.data} -> "
+        while current.next != self.head:
+                current = current.next
+                string = string + f"{current.data} -> "
+        string = string + "head" 
+        print (string)
