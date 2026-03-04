@@ -87,3 +87,30 @@ class DoublyLinkedList:
                 i += 1
             else:
                 return current.value
+
+    def delete(self, value) -> bool:
+        '''This method deletes a value from the doubly linked list and returns True if the deletion is successful, or False if the value is not in the list'''
+        #Time complexity = O(n)
+        #Space complexity = O(1)
+        current: DoublyNode = self.head
+        if self.length == 0:
+            return False
+        else:
+            while current:
+                if current.value == value:
+                    if current == self.head:
+                        self.head = current.next
+                        if self.head:
+                            self.head.prev = None
+                        else:
+                            self.tail = None
+                    elif current == self.tail:
+                        self.tail = current.prev
+                        self.tail.next = None
+                    else:
+                        current.prev.next = current.next
+                        current.next.prev = current.prev
+                    self.length -= 1
+                    return True
+                current = current.next
+        return False
