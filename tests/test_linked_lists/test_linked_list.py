@@ -35,3 +35,14 @@ def test_insert():
         ll.insert(5, 100)
         ll.insert(0, 5)
         assert ll.length == 1
+
+def test_remove_at():
+    ll = LinkedList()
+    ll.append_end(1)
+    ll.append_end(2)
+    ll.append_end(3)
+
+    removed = ll.remove_at(1)
+
+    assert removed == 2
+    assert ll.length == 2
