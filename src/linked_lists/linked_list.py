@@ -78,3 +78,10 @@ class LinkedList:
             current.next = current.next.next
             self.length -= 1
             return removed
+    
+    def clear(self):
+        '''This method empties the linked list'''
+        #Time complexity = O(1)
+        #Space complexity = O(1)
+        self.head = None
+        self.length = 0
