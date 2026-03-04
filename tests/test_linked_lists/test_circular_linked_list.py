@@ -49,3 +49,10 @@ def test_get_at():
     assert cll.get_at(2) is 20
     assert cll.length is 3
 
+def test_length():
+    cll = CircularLinkedList()
+    cll.insert(10)
+    cll.insert(15)
+    cll.insert(20)
+    assert cll.size() is 3
+
