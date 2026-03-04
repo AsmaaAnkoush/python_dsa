@@ -1,4 +1,5 @@
 from src.queues.queue import Queue , Node
+import pytest
 
 def test_queue_node_creation():
     node: Node = Node(10)
@@ -20,3 +21,15 @@ def test_enqueue():
     assert queue.head.value == 10
     assert queue.tail.value == 30
     assert queue.length == 3
+
+def test_dequeue():
+    queue: Queue = Queue()
+    empty_queue: Queue = Queue()
+    queue.enqueue(10)
+    queue.enqueue(20)
+    queue.enqueue(30)
+    assert queue.length == 3
+    queue.dequeue()
+    assert queue.length == 2
+    with pytest.raises(IndexError):
+        empty_queue.dequeue()
