@@ -114,3 +114,27 @@ class DoublyLinkedList:
                     return True
                 current = current.next
         return False
+
+    def print_forward(self):
+        '''This method prints doubly linked list from head to tail'''
+        #Time complexity = O(1)
+        #Space complexity = O(1)
+        current: DoublyNode = self.head
+        string: str = "head -> "
+        while current:
+            string = string + f"{current.value} -> "
+            current = current.next
+        string = string + "tail"
+        print(string)
+     
+    def print_backward(self):
+        '''This method prints doubly linked list from tail to head'''
+        #Time complexity = O(1)
+        #Space complexity = O(1)
+        current: DoublyNode = self.tail
+        string: str = "tail <- "
+        while current:
+            string = string + f"{current.value} <- "
+            current = current.prev
+        string = string + "head"
+        print(string)
