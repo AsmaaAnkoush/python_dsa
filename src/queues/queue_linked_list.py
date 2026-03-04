@@ -17,7 +17,7 @@ class Queue:
         return self.elments.remove_at(0)
     
     def front(self):
-        '''this function returnes the element in the head of queue'''
+        '''This method returnes the element in the head of queue'''
         #Time Complexity O(n)
         #Space complexity O(1)
         element = self.elments.remove_at(0)
@@ -25,8 +25,13 @@ class Queue:
         return element
 
     def size(self) -> int:
-        '''this function return the size of queue'''
+        '''This method returns the size of queue'''
         #Time Complexity is O(1)
         #Space complexity is o(1)
         return self.elments.length
 
+    def clear(self):
+        '''This method removes all element in queue'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        self.elments.clear()
