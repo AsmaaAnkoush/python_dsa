@@ -9,3 +9,9 @@ class Stack:
         #Time Complexity is O(n)
         #Space complexity is o(1)
         self.elments.append_end(data)
+    
+    def pop(self):
+        '''This method pops the top element from the stack, and returns the removed value'''
+        #Time Complexity is O(n).
+        #Space complexity is o(1).
+        return self.elments.remove_at(self.elments.length-1)
