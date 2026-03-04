@@ -58,3 +58,23 @@ class CircularLinkedList:
             prev = current
             current = current.next
         return False
+
+    def containes(self, data) -> bool:
+        '''This method checks whether data exists in the circular linked list'''
+        #Time Complexity = O(n)
+        #Space Complexity = O(1)
+        if self.head == None:
+            return False
+        current: CircularNode = self.head
+        if current.data == data:
+            current = current.next
+            return True
+        else:
+            current = current.next
+        while current != self.head:
+            if current.data == data:
+                return True
+            else:
+                pass
+            current = current.next
+        return False
