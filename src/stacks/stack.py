@@ -49,7 +49,14 @@ class Stack:
             return False
 
     def size(self) -> int:
-        '''this method returns the size of the stack'''
+        '''This method returns the size of the stack'''
         #Time Complexity is O(1)
         #Space complexity is O(1)
         return self.length
+
+    def clear(self):
+        '''This method empties the stack'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        self.length = 0
+        self.top = None
