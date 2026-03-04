@@ -60,3 +60,14 @@ class Stack:
         #Space complexity is o(1)
         self.length = 0
         self.top = None
+    
+        
+    def __str__(self):
+        '''This method for human-readable representation'''
+        current_top = self.top
+        string: str = ""
+        while current_top:
+            string = string + "^\n"
+            string = string + f"{current_top.value}\n"
+            current_top = current_top.next
+        return string
