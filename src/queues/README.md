@@ -9,8 +9,8 @@
 ## 📦 Project Structure
 ```bash
 linked_lists/
-├── queue_list.py
 ├── queue_linked_list.py
+├── queue_list.py
 ├── queue.py
 └── README.md
 
