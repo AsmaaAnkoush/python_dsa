@@ -33,3 +33,12 @@ class Stack:
         #Time Complexity is O(1)
         #Space complexity is o(1)
         return self.length
+
+    def is_empty(self) -> bool:
+        '''This method checks if the stack is empty or not'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        if self.length == 0:
+            return True
+        else:
+            return False
