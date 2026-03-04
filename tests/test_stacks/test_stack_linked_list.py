@@ -42,3 +42,12 @@ def test_is_empty():
 
     assert stack.is_empty() is False
     assert empty_stack.is_empty() is True
+
+def test_size():
+    stack: Stack = Stack()
+    empty_stack: Stack = Stack()
+    stack.push(10)
+    stack.push(20)
+    stack.push(30)
+    assert stack.size() == 3
+    assert empty_stack.size() == 0
