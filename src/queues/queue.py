@@ -21,3 +21,15 @@ class Queue:
             self.tail.next = node
             self.tail = node
         self.length += 1
+
+    def dequeue(self):
+        '''This method removes a node from the front of the queue'''
+        #Time Complexity O(1)
+        #Space complexity O(1)
+        if self.head == None:
+            raise IndexError ("The Queue is Empty")
+        else:
+            self.head = self.head.next
+            self.length -= 1
+        if self.head is None:
+            self.tail = None
