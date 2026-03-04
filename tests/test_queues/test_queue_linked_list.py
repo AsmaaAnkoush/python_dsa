@@ -20,3 +20,14 @@ def test_dequeue():
     assert queue.elments.length == 2
     with pytest.raises(IndexError):
         empty_queue.dequeue()
+
+def test_front():
+    queue: Queue = Queue()
+    queue.enqueue(10)
+    queue.enqueue(20)
+    queue.enqueue(30)
+    assert queue.elments.length == 3
+    assert queue.front() == 10
+    queue.dequeue()
+    assert queue.elments.length == 2
+    assert queue.front() == 20
