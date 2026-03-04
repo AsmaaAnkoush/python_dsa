@@ -35,10 +35,9 @@ def test_peek():
 
 def test_size():
     stack: Stack = Stack()
+    empty_stack: Stack = Stack()
     stack.push(10)
     stack.push(20)
     stack.push(30)
-    top_element = stack.peek()
-
-    assert top_element == 30
-    assert stack.length == 3
+    assert stack.size() == 3
+    assert empty_stack.size() == 0
