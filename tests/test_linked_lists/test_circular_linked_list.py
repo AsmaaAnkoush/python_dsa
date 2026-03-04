@@ -9,3 +9,12 @@ def test_circular_linked_list_creation():
     cll:CircularLinkedList = CircularLinkedList()
     assert cll.head is None
     assert cll.length == 0
+
+def test_insert():
+    cll = CircularLinkedList()
+    cll.insert(10)
+    assert cll.length == 1
+    cll.insert(12)
+    assert cll.length == 2
+    cll.insert(15)
+    assert cll.length == 3
