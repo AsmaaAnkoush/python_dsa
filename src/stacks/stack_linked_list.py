@@ -38,3 +38,9 @@ class Stack:
         #Time Complexity is O(1)
         #Space complexity is o(1)
         return self.elments.length
+    
+    def clear(self):
+        '''This method empties the stack'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        self.elments.clear()
