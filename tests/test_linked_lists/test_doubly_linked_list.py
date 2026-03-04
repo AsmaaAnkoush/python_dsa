@@ -47,3 +47,12 @@ def test_insert_at():
     assert dll.tail.value is 20
     assert dll.head.value is 2
     assert dll.length == 5
+
+def test_containes():
+    dll: DoublyLinkedList = DoublyLinkedList()
+    dll.insert_at_head(10)
+    dll.insert_at_head(5)
+    assert dll.containes(5) is True
+    assert dll.containes(15) is False
+    dll.insert_at(2, 15)
+    assert dll.containes(15) is True
