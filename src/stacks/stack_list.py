@@ -49,3 +49,13 @@ class Stack:
         #Space complexity is o(1)
         self.length = 0
         self.elements = []
+    
+    def __str__(self):
+        '''This method for human-readable representation'''
+        #Time Complexity is O(1)
+        #Space complexity is o(1)
+        string: str = ""
+        for i in range(len(self.elements)-1,-1,-1):
+            string = string + "^\n"
+            string = string + f"{self.elements[i]}\n"
+        return string
