@@ -71,3 +71,14 @@ def test_index_of():
 
     assert ll.index_of(10) == 1
     assert ll.index_of(999) == -1
+
+def test_for_each():
+    ll = LinkedList()
+    ll.append_end(1)
+    ll.append_end(2)
+    ll.append_end(3)
+
+    ll.for_each(lambda x: x * 2)
+    assert ll.contains(6) is True
+    assert ll.contains(1) is False
+    assert ll.contains(2) is True
