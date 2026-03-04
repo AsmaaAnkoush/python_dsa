@@ -32,3 +32,13 @@ def test_peek():
 
     assert top_element == 30
     assert stack.length == 3
+
+def test_size():
+    stack: Stack = Stack()
+    stack.push(10)
+    stack.push(20)
+    stack.push(30)
+    top_element = stack.peek()
+
+    assert top_element == 30
+    assert stack.length == 3
