@@ -15,3 +15,11 @@ class Stack:
         #Time Complexity is O(n).
         #Space complexity is o(1).
         return self.elments.remove_at(self.elments.length-1)
+    
+    def peek(self):
+        '''This method returns the value of top element in the stack without removing it from the stack'''
+        #Time Complexity is O(n)
+        #Space complexity is o(1)
+        element = self.elments.remove_at(self.elments.length-1)
+        self.elments.append_end(element)
+        return element
