@@ -115,3 +115,12 @@ class LinkedList:
                 index += 1
                 current = current.next
             return -1
+
+    def for_each(self, action):
+        '''this method applies the given action function to all values in the linked list'''
+        #Time complexity = O(n)
+        #Space complexity = O(1)
+        current: Node = self.head
+        while current:
+            current.value = (action)(current.value)
+            current = current.next
