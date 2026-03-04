@@ -39,3 +39,13 @@ def test_containes():
     assert cll.containes(15) is True
     assert cll.containes(20) is True
 
+def test_get_at():
+    cll = CircularLinkedList()
+    cll.insert(10)
+    cll.insert(15)
+    cll.insert(20)
+    assert cll.get_at(0) is 10
+    assert cll.get_at(1) is 15
+    assert cll.get_at(2) is 20
+    assert cll.length is 3
+
