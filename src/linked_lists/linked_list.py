@@ -54,3 +54,27 @@ class LinkedList:
             node.next = current.next
             current.next = node
             self.length += 1
+
+    def remove_at(self, index: int) -> int:
+        '''this method removes a value at a specific index in the linked list'''
+        #Time complexity = O(n)
+        #Space complexity = O(1)
+        removed: int
+        if self.length <= index or index < 0:
+            raise IndexError("Index Out Of Range")
+        elif index == 0:
+            removed = self.head.value
+            self.head = self.head.next
+            self.length -= 1
+            return removed
+        else:
+            current: Node = self.head
+            i: int = 0 
+            while i < index - 1:
+                prev = current
+                current = current.next
+                i += 1
+            removed = current.next.value
+            current.next = current.next.next
+            self.length -= 1
+            return removed
