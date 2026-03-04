@@ -32,3 +32,13 @@ def test_peek():
 
     assert top_element == 30
     assert stack.elments.length == 3
+
+def test_is_empty():
+    stack: Stack = Stack()
+    empty_stack: Stack = Stack()
+    stack.push(10)
+    stack.push(20)
+    stack.push(30)
+
+    assert stack.is_empty() is False
+    assert empty_stack.is_empty() is True
