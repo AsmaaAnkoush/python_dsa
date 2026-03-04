@@ -31,3 +31,12 @@ def test_front():
     queue.dequeue()
     assert queue.length == 2
     assert queue.front() == 20
+
+def test_clear_and_size():
+    queue: Queue = Queue()
+    queue.enqueue(10)
+    queue.enqueue(20)
+    queue.enqueue(30)
+    assert queue.size() == 3
+    queue.clear()
+    assert queue.size() == 0
