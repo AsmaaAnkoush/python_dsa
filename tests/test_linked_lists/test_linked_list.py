@@ -1,4 +1,6 @@
 from src.linked_lists.linked_list import LinkedList, Node
+import pytest
+
 
 def test_linked_test_creation():
     node: Node = Node(10)
@@ -25,3 +27,11 @@ def test_append_end_and_length():
     ll.append_end(30)
 
     assert ll.length == 3
+
+def test_insert():
+    ll = LinkedList()
+
+    with pytest.raises(IndexError):
+        ll.insert(5, 100)
+        ll.insert(0, 5)
+        assert ll.length == 1
