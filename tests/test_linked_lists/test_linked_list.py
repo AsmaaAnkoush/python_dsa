@@ -138,3 +138,15 @@ def test_find_middle():
     ll.append_end(5)
 
     assert ll.find_middle().value == 3
+
+def test_insert_sorted():
+    ll = LinkedList()
+    ll.append_end(1)
+    ll.append_end(2)
+    ll.append_end(3)
+    ll.append_end(7)
+    ll.append_end(15)
+    assert ll.length == 5
+    ll.insert_sorted(10)
+    assert ll.length == 6 
+    ll.index_of(4) == 10
