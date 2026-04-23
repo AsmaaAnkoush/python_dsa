@@ -152,7 +152,7 @@ class LinkedList:
         return new_list
     
     def where_at(self, position: int) -> Node:
-        '''this method return the node at a specific position'''
+        '''this method returns the node at a specific position'''
         #Time complexity = O(n)
         #Space complexity = O(1)
         if self.length <= position or position < 0:
@@ -162,6 +162,18 @@ class LinkedList:
             current = current.next
         retuned_node: Node = Node(current.value)
         return retuned_node
+    
+    def find_middle(self) -> Node:
+        '''this method returns the middle node of linked list using slow and fast pointers'''
+        #Time complexity = O(n)
+        #Space complexity = O(1)
+        slow: Node = self.head
+        fast: Node = self.head
+        while fast is not None and fast.next is not None :
+            fast = fast.next.next
+            slow = slow.next
+        returned_node: Node = Node(slow.value)
+        return returned_node
 
     def __str__(self):
         '''this method for human-readable representation'''
