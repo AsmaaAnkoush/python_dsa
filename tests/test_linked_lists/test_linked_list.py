@@ -128,3 +128,13 @@ def test_str_representation():
     ll.append_end(2)
 
     assert str(ll)
+
+def test_find_middle():
+    ll = LinkedList()
+    ll.append_end(1)
+    ll.append_end(2)
+    ll.append_end(3)
+    ll.append_end(4)
+    ll.append_end(5)
+
+    assert ll.find_middle().value == 3
