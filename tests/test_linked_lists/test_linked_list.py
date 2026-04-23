@@ -108,6 +108,20 @@ def test_where():
     assert evens.index_of(2) == 0
     assert evens.index_of(4) == 1
 
+def test_where_at():
+    ll = LinkedList()
+    ll.append_end(1)
+    ll.append_end(2)
+    ll.append_end(3)
+    ll.append_end(4)
+
+    assert ll.where_at(0).value == 1
+    assert ll.where_at(1).value == 2
+    assert ll.where_at(2).value == 3
+    assert ll.where_at(3).value == 4
+    with pytest.raises(IndexError):
+        ll.where_at(-5).value == 4
+
 def test_str_representation():
     ll = LinkedList()
     ll.append_end(1)
