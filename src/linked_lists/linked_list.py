@@ -150,6 +150,18 @@ class LinkedList:
                 pass
             current = current.next
         return new_list
+    
+    def where_at(self, position: int) -> Node:
+        '''this method return the node at a specific position'''
+        #Time complexity = O(n)
+        #Space complexity = O(1)
+        if self.length <= position or position < 0:
+            raise IndexError("Index Out Of Range")
+        current: Node = self.head
+        for _ in range (0, position):
+            current = current.next
+        retuned_node: Node = Node(current.value)
+        return retuned_node
 
     def __str__(self):
         '''this method for human-readable representation'''
