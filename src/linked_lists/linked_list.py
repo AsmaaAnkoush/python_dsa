@@ -10,8 +10,8 @@ class LinkedList:
     
     def add_first(self, value):
         '''this method add the value to the first of linked list'''
-        #Time complexity = O(1)
-        #Space complexity = O(1)
+        # Time complexity = O(1)
+        # Space complexity = O(1)
         node: Node = Node(value)
         if self.head is None:
             self.head = node
@@ -22,8 +22,8 @@ class LinkedList:
 
     def append_end(self, value):
         '''this method add the value to the end of linked list'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         node: Node = Node(value)
         if self.head is None:
             self.head = node 
@@ -36,8 +36,8 @@ class LinkedList:
 
     def insert(self, index, value):
         '''This method adds a value at a specific index in the linked list'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         node: Node = Node(value)
         if self.length < index or index < 0:
             raise IndexError("Index Out Of Range")
@@ -57,8 +57,8 @@ class LinkedList:
 
     def remove_at(self, index: int) -> int:
         '''this method removes a value at a specific index in the linked list'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         removed: int
         if self.length <= index or index < 0:
             raise IndexError("Index Out Of Range")
@@ -81,15 +81,15 @@ class LinkedList:
     
     def clear(self):
         '''This method empties the linked list'''
-        #Time complexity = O(1)
-        #Space complexity = O(1)
+        # Time complexity = O(1)
+        # Space complexity = O(1)
         self.head = None
         self.length = 0
 
     def contains(self, value) -> bool:
         '''this method checks if the linked list contains a specific value'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         current: Node = self.head
         if self.length == 0:
             return False
@@ -102,8 +102,8 @@ class LinkedList:
 
     def index_of(self, value) -> int:
         '''this method returns the index of a specific value in the linked list, if it exists'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         current: Node = self.head
         index: int = 0
         if self.length == 0:
@@ -118,8 +118,8 @@ class LinkedList:
 
     def for_each(self, action):
         '''this method applies the given action function to all values in the linked list'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         current: Node = self.head
         while current:
             current.value = (action)(current.value)
@@ -127,8 +127,8 @@ class LinkedList:
     
     def map(self, action) -> LinkedList:
         '''this method returns a new linked list with action applied to all values, leaving the original list unchanged'''
-        #Time complexity = O(n^2)
-        #Space complexity = O(n)
+        # Time complexity = O(n^2)
+        # Space complexity = O(n)
         current: Node = self.head
         new_list: LinkedList = LinkedList()
         while current:
@@ -139,8 +139,8 @@ class LinkedList:
     
     def where (self, action) -> LinkedList:
         '''this method returns a new linked list containing values for which action(value) is True, leaving the original list unchanged'''
-        #Time complexity = O(n^2)
-        #Space complexity = O(n)
+        # Time complexity = O(n^2)
+        # Space complexity = O(n)
         current: Node = self.head
         new_list: LinkedList = LinkedList()
         while current:
@@ -153,8 +153,8 @@ class LinkedList:
     
     def where_at(self, position: int) -> Node:
         '''this method returns the node at a specific position'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         if self.length <= position or position < 0:
             raise IndexError("Index Out Of Range")
         current: Node = self.head
@@ -165,8 +165,10 @@ class LinkedList:
     
     def find_middle(self) -> Node:
         '''this method returns the middle node of linked list using slow and fast pointers'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
+        if self.head is None:
+            raise IndexError("Index Out Of Range")
         slow: Node = self.head
         fast: Node = self.head
         while fast is not None and fast.next is not None :
@@ -174,6 +176,33 @@ class LinkedList:
             slow = slow.next
         returned_node: Node = Node(slow.value)
         return returned_node
+    
+    def insert_sorted(self, data):
+        '''this method Assuming the list is already sorted,
+        insert a new node in the correct numerical/alphabetical position.'''
+        # Time complexity = O(n)
+        # Space complexity = O(1)
+        data_node: Node = Node(data)
+        current: Node = self.head
+        prev: Node = None
+        # case 1 if the data in the begning of linked_list or if the linked_list is empty
+        if data < self.head.value or self.head is None:
+            data_node.next = self.head
+            self.head = data_node
+            self.length += 1
+            return
+        # case 2 if data not in the begning or end of linked_list
+        while current:
+            if data < current.value:
+                prev.next = data_node
+                data_node.next = current
+                self.length += 1
+                return 
+            prev = current
+            current = current.next
+        # case 3 if data must in the end
+        prev.next = data_node
+        self.length += 1
 
     def __str__(self):
         '''this method for human-readable representation'''
