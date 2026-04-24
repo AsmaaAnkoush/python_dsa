@@ -1,6 +1,12 @@
 from src.linked_lists.linked_list import LinkedList, Node
 import pytest
 
+def square_fun(x):
+    return x * 2
+
+def get_even(x):
+    return x % 2 == 0
+
 
 def test_linked_test_creation():
     node: Node = Node(10)
@@ -78,7 +84,7 @@ def test_for_each():
     ll.append_end(2)
     ll.append_end(3)
 
-    ll.for_each(lambda x: x * 2)
+    ll.for_each(square_fun)
     assert ll.contains(6) is True
     assert ll.contains(1) is False
     assert ll.contains(2) is True
@@ -89,7 +95,7 @@ def test_map():
     ll.append_end(2)
     ll.append_end(3)
 
-    new_list = ll.map(lambda x: x * 2)
+    new_list = ll.map(square_fun)
 
     assert new_list.index_of(2) is 0
     assert new_list.index_of(4) is 1
@@ -102,7 +108,7 @@ def test_where():
     ll.append_end(3)
     ll.append_end(4)
 
-    evens = ll.where(lambda x: x % 2 == 0)
+    evens = ll.where(get_even)
 
     assert evens.length == 2
     assert evens.index_of(2) == 0
