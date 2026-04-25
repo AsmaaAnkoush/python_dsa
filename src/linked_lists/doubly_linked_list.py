@@ -152,6 +152,18 @@ class DoublyLinkedList:
                     current = current.next
                     current_index += 1
 
+    def map(self, transform_func) -> DoublyLinkedList:
+        '''this method returns a new Double Linked List with transform function applied to all values, leaving the original list unchanged'''
+        # Time complexity = O(n)
+        # Space complexity = O(n)
+        current: DoublyNode = self.head
+        new_double_linked_list: DoublyLinkedList = DoublyLinkedList()
+        while current:
+            new_value = (transform_func)(current.value)
+            new_double_linked_list.insert_at_tail(new_value)
+            current = current.next
+        return new_double_linked_list
+
     def print_forward(self):
         '''This method prints doubly linked list from head to tail'''
         # Time complexity = O(1)
