@@ -12,8 +12,8 @@ class DoublyLinkedList:
     
     def insert_at_head(self,data):
         '''This method adds a value to the beginning of the doubly linked list'''
-        #Time complexity = O(1)
-        #Space complexity = O(1)
+        # Time complexity = O(1)
+        # Space complexity = O(1)
         node: DoublyNode = DoublyNode(data)
         if self.head is None:
             self.head = node
@@ -40,8 +40,8 @@ class DoublyLinkedList:
 
     def insert_at(self, index, data):
         '''This method adds a value at a specific index in the doubly linked list'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         node: DoublyNode = DoublyNode(data)
         if self.length < index or index < 0:
             raise IndexError("Index Out Of Range")
@@ -61,8 +61,8 @@ class DoublyLinkedList:
 
     def containes(self, data) -> bool:
         '''This method checks whether a value exists in the doubly linked list'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         current: DoublyNode = self.head
         if self.length == 0:
             return False
@@ -75,8 +75,8 @@ class DoublyLinkedList:
 
     def get_at(self, index):
         '''This method returns the value of the given index'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         if self.length <= index or index < 0:
             raise IndexError("Index Out Of Range")
         else:
@@ -90,20 +90,24 @@ class DoublyLinkedList:
 
     def delete(self, value) -> bool:
         '''This method deletes a value from the doubly linked list and returns True if the deletion is successful, or False if the value is not in the list'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         current: DoublyNode = self.head
         if self.length == 0:
             return False
         else:
             while current:
                 if current.value == value:
+                    # delete head
                     if current == self.head:
                         self.head = current.next
+                        # double linked list not empty
                         if self.head:
                             self.head.prev = None
+                        # double linked list empty
                         else:
                             self.tail = None
+                    # delete tail
                     elif current == self.tail:
                         self.tail = current.prev
                         self.tail.next = None
@@ -114,11 +118,44 @@ class DoublyLinkedList:
                     return True
                 current = current.next
         return False
+    
+    def remove_at(self, index: int):
+        '''This method removes the node in specific index'''
+        # Time complexity = O(n)
+        # Space complexity = O(1)
+        if self.length <= index or index < 0:
+            raise IndexError("Index Out Of Range")
+        # if DLL is contained 1 element only
+        if index == 0 and self.length == 1:
+            self.head = None
+            self.tail = None
+            self.length -= 1
+            return
+        elif index == 0 and self.length > 1:
+            self.head = self.head.next
+            self.head.prev = None
+            self.length -= 1
+            return
+        else:
+            current: DoublyNode = self.head
+            prev: DoublyNode = None
+            current_index = 0
+            while current:
+                if current_index == index:
+                    # Remove Node
+                    prev.next = current.next
+                    current.prev = prev
+                    self.length -= 1
+                    return 
+                else:
+                    prev = current
+                    current = current.next
+                    current_index += 1
 
     def print_forward(self):
         '''This method prints doubly linked list from head to tail'''
-        #Time complexity = O(1)
-        #Space complexity = O(1)
+        # Time complexity = O(1)
+        # Space complexity = O(1)
         current: DoublyNode = self.head
         string: str = "head -> "
         while current:
@@ -129,8 +166,8 @@ class DoublyLinkedList:
      
     def print_backward(self):
         '''This method prints doubly linked list from tail to head'''
-        #Time complexity = O(1)
-        #Space complexity = O(1)
+        # Time complexity = O(1)
+        # Space complexity = O(1)
         current: DoublyNode = self.tail
         string: str = "tail <- "
         while current:
