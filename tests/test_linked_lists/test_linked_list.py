@@ -1,7 +1,7 @@
 from src.linked_lists.linked_list import LinkedList, Node
 import pytest
 
-def square_fun(x):
+def double_func(x):
     return x * 2
 
 def get_even(x):
@@ -84,7 +84,7 @@ def test_for_each():
     ll.append_end(2)
     ll.append_end(3)
 
-    ll.for_each(square_fun)
+    ll.for_each(double_func)
     assert ll.contains(6) is True
     assert ll.contains(1) is False
     assert ll.contains(2) is True
@@ -95,7 +95,7 @@ def test_map():
     ll.append_end(2)
     ll.append_end(3)
 
-    new_list = ll.map(square_fun)
+    new_list = ll.map(double_func)
 
     assert new_list.index_of(2) is 0
     assert new_list.index_of(4) is 1
