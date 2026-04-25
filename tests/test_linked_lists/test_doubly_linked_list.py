@@ -1,4 +1,6 @@
 from src.linked_lists.doubly_linked_list import DoublyLinkedList, DoublyNode
+def square_fun(x):
+    return x ** 2
 
 def test_double_linked_list_creation():
     node: DoublyNode = DoublyNode(10)
@@ -84,3 +86,13 @@ def test_remove_at():
     dll.insert_at(2, 30)
     dll.remove_at(2)
     assert dll.length == 2
+
+def test_map():
+    dll: DoublyLinkedList = DoublyLinkedList()
+    dll.insert_at_head(10)
+    dll.insert_at_head(5)
+    dll.insert_at_tail(20)
+    new_dll: DoublyLinkedList = dll.map(square_fun)
+    assert new_dll.get_at(0) == 25
+    assert new_dll.get_at(1) == 100
+    assert new_dll.get_at(2) == 400
