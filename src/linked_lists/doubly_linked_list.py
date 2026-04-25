@@ -165,7 +165,7 @@ class DoublyLinkedList:
         return new_double_linked_list
     
     def split_at(self, index):
-        '''this method break one DLL into two separate DLLs at the given index'''
+        '''this method breaks one DLL into two separate DLLs at the given index'''
         # Time complexity = O(n)
         # Space complexity = O(n)
         if self.length <= index or index < 0:
