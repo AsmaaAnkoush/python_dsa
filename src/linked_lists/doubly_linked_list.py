@@ -163,6 +163,25 @@ class DoublyLinkedList:
             new_double_linked_list.insert_at_tail(new_value)
             current = current.next
         return new_double_linked_list
+    
+    def split_at(self, index):
+        '''this method break one DLL into two separate DLLs at the given index'''
+        # Time complexity = O(n)
+        # Space complexity = O(n)
+        if self.length <= index or index < 0:
+            raise IndexError("Index Out Of Range")
+        first_dll: DoublyLinkedList = DoublyLinkedList()
+        second_dll: DoublyLinkedList = DoublyLinkedList()
+        current: DoublyNode = self.head
+        current_index: int = 0
+        while current:
+            if current_index <= index:
+                first_dll.insert_at_tail(current.value)
+            else:
+                second_dll.insert_at_tail(current.value)
+            current_index += 1
+            current = current.next
+        return first_dll, second_dll
 
     def print_forward(self):
         '''This method prints doubly linked list from head to tail'''
