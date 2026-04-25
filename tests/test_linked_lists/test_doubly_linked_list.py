@@ -96,3 +96,19 @@ def test_map():
     assert new_dll.get_at(0) == 25
     assert new_dll.get_at(1) == 100
     assert new_dll.get_at(2) == 400
+
+def test_split_at():
+    dll: DoublyLinkedList = DoublyLinkedList()
+    dll.insert_at_tail(5)
+    dll.insert_at_tail(10)
+    dll.insert_at_tail(20)
+    dll.insert_at_tail(30)
+    dll.insert_at_tail(40)
+    dll.insert_at_tail(60)
+    dll.insert_at(4, 50)
+    dll.length = 7
+    first_dll, second_dll = dll.split_at(3)
+    assert first_dll.length == 4
+    assert first_dll.get_at(0) == 5
+    assert second_dll.length == 3
+    assert second_dll.get_at(0) == 50
