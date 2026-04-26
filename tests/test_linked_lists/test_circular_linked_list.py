@@ -78,3 +78,16 @@ def test_is_circular():
     cll.insert(40)
     cll.rotate(2)
     assert cll.is_circular() is True
+
+def test_copy_circular():
+    cll = CircularLinkedList()
+    cll.insert(10)
+    cll.insert(15)
+    cll.insert(20)
+    cll.insert(30)
+    cll.insert(40)
+    cll2 = cll.copy_circular()
+    assert cll2.get_at(0) == 10
+    assert cll2.get_at(1) == 15
+    assert cll2.get_at(2) == 20
+    assert cll2.get_at(3) == 30
