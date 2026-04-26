@@ -1,18 +1,19 @@
 # 🧠 Python Data Structure Algorithms 
 
-# first from-scratch implementation of **Data Structer Algorithms** in Python.
+## from-scratch implementation of **Data Structer Algorithms** in Python.
 - Single Linked List
 - Double Linked List
+- Circular Linked List
 - Stack
 - Stack List
 - Stack Linked List
 - Queue
 - Queue List
-
+- Queue Linked List
 ---
 
 ## 📦 Project Structure
-```bash
+```
 dsa-python/
 ├── src ├── arrays/
 |       ├── linked_lists/
@@ -26,5 +27,4 @@ dsa-python/
 ├── tests
 ├── .gitignore
 └── README.md
-
 ```
