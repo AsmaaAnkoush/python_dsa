@@ -182,6 +182,17 @@ class DoublyLinkedList:
             current_index += 1
             current = current.next
         return first_dll, second_dll
+    
+    def fold(self, combine_func, initial):
+        '''this method starting with initial value, then traverse Double Linked List to apply combine_function to add them to the value'''
+        # Time complexity = O(n)
+        # Space complexity = O(1)
+        returned_value = initial
+        current: DoublyNode = self.head
+        while current:
+            returned_value += (combine_func)(current.value)
+            current = current.next
+        return returned_value
 
     def print_forward(self):
         '''This method prints doubly linked list from head to tail'''
