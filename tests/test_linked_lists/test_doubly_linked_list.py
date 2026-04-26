@@ -2,6 +2,9 @@ from src.linked_lists.doubly_linked_list import DoublyLinkedList, DoublyNode
 def square_fun(x):
     return x ** 2
 
+def string_fun(x):
+    return "f{xx}"
+
 def test_double_linked_list_creation():
     node: DoublyNode = DoublyNode(10)
 
@@ -112,3 +115,15 @@ def test_split_at():
     assert first_dll.get_at(0) == 5
     assert second_dll.length == 3
     assert second_dll.get_at(0) == 50
+
+def test_fold():
+    dll: DoublyLinkedList = DoublyLinkedList()
+    dll.insert_at_tail(1)
+    dll.insert_at_tail(2)
+    dll.insert_at_tail(3)
+    dll.insert_at_tail(4)
+    dll.insert_at_tail(5)
+    assert dll.fold(square_fun, 3) == 58
+    assert dll.fold(square_fun, 0) == 55
+
+
