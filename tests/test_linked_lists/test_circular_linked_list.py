@@ -56,3 +56,15 @@ def test_size():
     cll.insert(20)
     assert cll.size() is 3
 
+def test_rotate():
+    cll = CircularLinkedList()
+    cll.insert(10)
+    cll.insert(15)
+    cll.insert(20)
+    cll.insert(30)
+    cll.insert(40)
+    cll.rotate(2)
+    assert cll.get_at(0) == 30
+    assert cll.get_at(1) == 40
+    assert cll.get_at(2) == 10
+    assert cll.get_at(3) == 15
