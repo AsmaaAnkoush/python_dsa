@@ -10,8 +10,8 @@ class CircularLinkedList:
 
     def insert(self, data):
         '''This method inserts a value at the end of the circular linked list'''
-        #Time Complexity = O(n)
-        #Space Complexity = O(1)
+        # Time Complexity = O(n)
+        # Space Complexity = O(1)
         node: CircularNode = CircularNode(data)
 
         if self.head == None:
@@ -28,8 +28,8 @@ class CircularLinkedList:
 
     def delete(self, data) -> bool:
         '''This method deletes a node from the circular linked list and returns True if the deletion is successful, or False otherwise'''
-        #Time Complexity = O(n)
-        #Space Complexity = O(1)
+        # Time Complexity = O(n)
+        # Space Complexity = O(1)
         if self.head == None:
             return False
         current: CircularNode = self.head
@@ -61,8 +61,8 @@ class CircularLinkedList:
 
     def containes(self, data) -> bool:
         '''This method checks whether data exists in the circular linked list'''
-        #Time Complexity = O(n)
-        #Space Complexity = O(1)
+        # Time Complexity = O(n)
+        # Space Complexity = O(1)
         if self.head == None:
             return False
         current: CircularNode = self.head
@@ -81,8 +81,8 @@ class CircularLinkedList:
     
     def get_at(self, index):
         '''This function returns the data at the given index'''
-        #Time complexity = O(n)
-        #Space complexity = O(1)
+        # Time complexity = O(n)
+        # Space complexity = O(1)
         if index >= self.length or index < 0 :
             raise IndexError("Index Out Of Range")
         else:
@@ -93,8 +93,8 @@ class CircularLinkedList:
     
     def size(self) -> int:
         '''This method returns length of circular linked list'''
-        #Time complexity = O(1)
-        #Space complexity = O(1)
+        # Time complexity = O(1)
+        # Space complexity = O(1)
         return self.length
     
     def print_list(self):
@@ -109,3 +109,13 @@ class CircularLinkedList:
                 string = string + f"{current.data} -> "
         string = string + "head" 
         print (string)
+    
+    def rotate(self, k: int):
+        '''this method shift starting point of cirular linked list by k'''
+        # Time complexity = O(n)
+        # Space complexity = O(1)
+        current: CircularNode = self.head
+        for _ in range(0, k):
+            current = current.next
+        self.head = current.next
+
