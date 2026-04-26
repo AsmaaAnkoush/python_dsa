@@ -131,6 +131,8 @@ class CircularLinkedList:
         '''this method checks if the circular linked list is circular using flody's cycle finding algorithm'''
         # Time complexity = O(n)
         # Space complexity = O(1)
+        if self.head is None:
+            raise IndexError("Index Out Of Range")
         slow: CircularNode = self.head
         fast: CircularNode = self.head
         while fast is not None and fast.next is not None :
@@ -139,3 +141,23 @@ class CircularLinkedList:
             if fast == slow:
                 return True
         return False
+    
+    def copy_circular(self):
+        '''this method creates a deep copy of the circular linked list'''
+        # Time complexity = O(n)
+        # Space complexity = O(n)
+        if self.head is None:
+            raise IndexError("Index Out Of Range")
+        new_head: CircularNode = CircularNode(self.head.data)
+        current: CircularNode = self.head.next
+        new_current = new_head
+        new_cl_list: CircularLinkedList = CircularLinkedList()
+        new_cl_list.head = new_head 
+        while current != self.head:
+            added_node: CircularNode = CircularNode(current.data)
+            new_current.next = added_node
+            new_cl_list.length += 1
+            new_current = new_current.next
+            current = current.next
+        new_current.next = new_head
+        return new_cl_list
