@@ -91,3 +91,19 @@ def test_copy_circular():
     assert cll2.get_at(1) == 15
     assert cll2.get_at(2) == 20
     assert cll2.get_at(3) == 30
+
+def test_flatten():
+    cll = CircularLinkedList()
+    cll.insert(10)
+    cll.insert(20)
+    cll.insert(30)
+    cll.insert(40)
+    cll.insert(50)
+    cll2: CircularLinkedList = CircularLinkedList()
+    cll2.insert(15)
+    cll2.insert(25)
+    cll.insert(cll2)
+    cll.flatten()
+    assert cll.get_at(0) is 10
+    assert cll.get_at(5) is 15
+    assert cll.get_at(6) is 25
