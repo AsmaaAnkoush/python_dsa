@@ -114,8 +114,28 @@ class CircularLinkedList:
         '''this method shift starting point of cirular linked list by k'''
         # Time complexity = O(n)
         # Space complexity = O(1)
+        if self.head is None:
+            raise IndexError("Index Out Of Range")
         current: CircularNode = self.head
         for _ in range(0, k):
             current = current.next
         self.head = current.next
+    
+    def flatten(self):
+        '''this method convert circular linked list to main list if any node contains circular linked list'''
+        # Time complexity = O(n^2)
+        # Space complexity = O(n)
+        pass
 
+    def is_circular(self) -> bool:
+        '''this method checks if the circular linked list is circular using flody's cycle finding algorithm'''
+        # Time complexity = O(n)
+        # Space complexity = O(1)
+        slow: CircularNode = self.head
+        fast: CircularNode = self.head
+        while fast is not None and fast.next is not None :
+            fast = fast.next.next
+            slow = slow.next
+            if fast == slow:
+                return True
+        return False
