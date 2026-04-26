@@ -115,7 +115,7 @@ class CircularLinkedList:
         # Time complexity = O(n)
         # Space complexity = O(1)
         if self.head is None:
-            raise IndexError("Index Out Of Range")
+            raise IndexError("Empty List")
         current: CircularNode = self.head
         for _ in range(0, k):
             current = current.next
@@ -125,7 +125,44 @@ class CircularLinkedList:
         '''this method convert circular linked list to main list if any node contains circular linked list'''
         # Time complexity = O(n^2)
         # Space complexity = O(n)
-        pass
+        if self.head is None:
+            raise IndexError("Empty List")
+        current = self.head
+        prev = None
+        while True:
+            if isinstance(current.data, CircularLinkedList):
+                inner_list = current.data
+                # empty inner list
+                if inner_list.head is None:
+                    prev = current
+                    current = current.next
+                    if current == self.head:
+                        break
+                    continue
+                # non-empty inner list
+                inner_head = inner_list.head
+                inner_current = inner_head
+                while inner_current.next != inner_head:
+                    inner_current = inner_current.next
+                next_node = current.next
+
+                # connect previous part
+                if prev is None or current == self.head:
+                    self.head = inner_head
+                    self.length += 1
+                else:
+                    prev.next = inner_head
+                    self.length += 1
+
+                # connect inner current to next part
+                inner_current.next = next_node
+                prev = inner_current
+                current = inner_current
+            else:
+                prev = current
+            current = current.next
+            if current == self.head:
+                break
 
     def is_circular(self) -> bool:
         '''this method checks if the circular linked list is circular using flody's cycle finding algorithm'''
