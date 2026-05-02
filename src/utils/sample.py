@@ -3,6 +3,7 @@ from ..queues.queue import Queue
 from ..linked_lists.doubly_linked_list import DoublyLinkedList
 from ..stacks.stack import Stack
 from ..linked_lists.circular_linked_list import CircularLinkedList
+from ..trees.binary_search_tree import BST
 
 
 # to run the code 
@@ -81,3 +82,24 @@ cll.print_list()
 cll.flatten()
 cll.insert(60)
 cll.print_list()
+
+print("*" * 50)
+print("Binary Search Tree")
+bst: BST = BST()
+bst.insert(10)
+bst.insert(20)
+bst.insert(5)
+bst.insert(0)
+bst.insert(7)
+bst.insert(25)
+bst.insert(18)
+bst.insert(6)
+
+
+bst.print_bst(bst.root)
+bst.remove(bst.root, 5)
+print("-" * 50)
+bst.print_bst(bst.root)
+print(bst.search(bst.root, 30))
+print(bst.search(bst.root, 0))
+print(bst.search(bst.root, 5))
