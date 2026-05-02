@@ -39,3 +39,19 @@ def test_remove():
     assert bst.root.left.right.value == 7
     assert bst.root.left.left.value == 0
     
+def test_search():
+    bst: BST = BST()
+    bst.insert(10)
+    bst.insert(20)
+    bst.insert(5)
+    bst.insert(0)
+    bst.insert(7)
+    bst.insert(25)
+    bst.insert(18)
+    bst.insert(6)
+
+    assert bst.search(bst.root, 10) is True
+    assert bst.search(bst.root, 0) is True
+    assert bst.search(bst.root, 100) is False
+    assert bst.search(bst.root, 18) is True
+    assert bst.search(bst.root, 9) is False
