@@ -15,26 +15,26 @@ class BST:
         else:
             self.insert_at_true_position(self.root, value)
     
-    def insert_at_true_position(self, current: Node, value):
-        if value < current.value:
+    def insert_at_true_position(self, root , value):
+        if value < root.value:
             # insert left 
-            if current.left:
-                self.insert_at_true_position(current.left, value)
+            if root.left:
+                self.insert_at_true_position(root.left, value)
             else:
-                current.left = Node(value)
+                root.left = Node(value)
         else:
             # insert right
-            if current.right:
-                self.insert_at_true_position (current.right, value)
+            if root.right:
+                self.insert_at_true_position (root.right, value)
             else:
-                current.right = Node(value)
+                root.right = Node(value)
     
-    def print_bst(self, node, level = 0, nodeType = "Root: "):
+    def print_bst(self, root, level = 0, nodeType = "Root: "):
         '''This method prints tree'''
-        if node:
-            self.print_bst(node.right, level + 1, "R-> ")
-            print("    " * level + nodeType + str(node.value))
-            self.print_bst(node.left, level + 1, "L-> ")
+        if root:
+            self.print_bst(root.right, level + 1, "R-> ")
+            print("    " * level + nodeType + str(root.value))
+            self.print_bst(root.left, level + 1, "L-> ")
     
     def find_minimum(self, root):
         '''This method returns the minimum value in subtree'''
@@ -42,7 +42,7 @@ class BST:
             root = root.left
         return root
 
-    def remove(self, root, value):
+    def remove(self, root, value) -> BST:
         '''This method removes value from tree using successor logic'''
         # if the tree was ended without find the value -> return Non
         if not root:
@@ -80,6 +80,10 @@ class BST:
         # find the node we want to delete it 
         else:
             return True
+    
+
+
+
 
 
 
