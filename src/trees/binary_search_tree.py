@@ -81,6 +81,24 @@ class BST:
         else:
             return True
     
+    def map_bst(self, root, transform_function) -> BST:
+        '''This function creates a new tree of the same shape but with transformed data'''
+        if root is None:
+            return None
+
+        # create new tree
+        maped_tree: BST = BST()
+        maped_tree.root = Node(transform_function(root.value))
+
+        left_tree = self.map_bst(root.left, transform_function)
+        if left_tree:
+            maped_tree.root.left = left_tree.root
+
+        right_tree = self.map_bst(root.right, transform_function)
+        if right_tree:
+            maped_tree.root.right = right_tree.root
+
+        return maped_tree
 
 
 
