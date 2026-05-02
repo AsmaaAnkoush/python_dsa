@@ -56,6 +56,9 @@ def test_search():
     assert bst.search(bst.root, 18) is True
     assert bst.search(bst.root, 9) is False
 
+def tra_fun(x):
+    return x*2
+
 def test_map_bst():
     bst: BST = BST()
     bst.insert(10)
@@ -63,8 +66,9 @@ def test_map_bst():
     bst.insert(5)
     bst.insert(0)
     bst.insert(7)
-    assert bst.root.value == 10
-    assert bst.root.right.value == 20
-    assert bst.root.left.value == 5
-    assert bst.root.left.right.value == 7
-    assert bst.root.left.left.value == 0
+    new_bst = bst.map_bst(bst.root, tra_fun)
+    assert new_bst.root.value == 20
+    assert new_bst.root.right.value == 40
+    assert new_bst.root.left.value == 10
+    assert new_bst.root.left.right.value == 14
+    assert new_bst.root.left.left.value == 0
