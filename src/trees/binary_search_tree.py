@@ -30,8 +30,44 @@ class BST:
                 current.right = Node(value)
     
     def print_bst(self, node, level = 0, nodeType = "Root: "):
-        '''this method prints tree'''
+        '''This method prints tree'''
         if node:
-            self.print_bst(node.right, level + 1, "-> ")
+            self.print_bst(node.right, level + 1, "R-> ")
             print("    " * level + nodeType + str(node.value))
-            self.print_bst(node.left, level + 1, "-> ")
+            self.print_bst(node.left, level + 1, "L-> ")
+    
+    def find_minimum(self, root):
+        '''This method returns the minimum value in subtree'''
+        while root.left:
+            root = root.left
+        return root
+
+    def remove(self, root, value):
+        '''This method removes value from tree using successor logic'''
+        # if the tree was ended without find the value return Non
+        if not root:
+            return root
+        
+        # search to the value
+        if value > root.value:
+            root.right = self.remove(root.right, value)
+        
+        elif value < root.value:
+            root.left = self.remove(root.left, value)
+        # find the node we want to delete it 
+        else:
+            if not root.left:
+                print("From right")
+                return root.right
+            elif not root.right:
+                print("From left")
+                return root.left
+            else:
+                successor = self.find_minimum(root.right)
+                root.value = successor.value
+                root.right = self.remove(root.right, successor.value)
+        return root
+
+
+
+
