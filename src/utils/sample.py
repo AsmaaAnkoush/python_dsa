@@ -83,6 +83,11 @@ cll.flatten()
 cll.insert(60)
 cll.print_list()
 
+
+
+def tra_fun(x):
+    return x*2
+
 print("*" * 50)
 print("Binary Search Tree")
 bst: BST = BST()
@@ -103,3 +108,8 @@ bst.print_bst(bst.root)
 print(bst.search(bst.root, 30))
 print(bst.search(bst.root, 0))
 print(bst.search(bst.root, 5))
+new_bst = bst.map_bst(bst.root, tra_fun)
+new_bst.print_bst(new_bst.root)
+bst.print_bst(bst.root)
+
+
