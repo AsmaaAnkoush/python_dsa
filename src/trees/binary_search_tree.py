@@ -1,7 +1,7 @@
 class Node:
     def __init__(self, value):
         self.value = value
-        self.rigth = None
+        self.right = None
         self.left = None
     
 class BST:
@@ -9,6 +9,7 @@ class BST:
         self.root = None
 
     def insert(self, value):
+        '''This Method inserts the node in true position of BST'''
         if not self.root:
             self.root = Node(value)
         else:
@@ -24,6 +25,6 @@ class BST:
         else:
             # insert right
             if current.right:
-                self.insert_at_true_position (current.rigth, value)
+                self.insert_at_true_position (current.right, value)
             else:
-                current.rigth = Node(value)
+                current.right = Node(value)
