@@ -44,7 +44,7 @@ class BST:
 
     def remove(self, root, value):
         '''This method removes value from tree using successor logic'''
-        # if the tree was ended without find the value return Non
+        # if the tree was ended without find the value -> return Non
         if not root:
             return root
         
@@ -57,16 +57,29 @@ class BST:
         # find the node we want to delete it 
         else:
             if not root.left:
-                print("From right")
                 return root.right
             elif not root.right:
-                print("From left")
                 return root.left
             else:
                 successor = self.find_minimum(root.right)
                 root.value = successor.value
                 root.right = self.remove(root.right, successor.value)
         return root
+    
+    def search(self, root, value) -> bool:
+        '''This function search if specific value is exists in BST'''
+        if not root:
+            return False
+        
+        # search to the value
+        if value > root.value:
+            return self.search(root.right, value)
+        
+        elif value < root.value:
+            return self.search(root.left, value)
+        # find the node we want to delete it 
+        else:
+            return True
 
 
 
