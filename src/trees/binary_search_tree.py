@@ -28,3 +28,10 @@ class BST:
                 self.insert_at_true_position (current.right, value)
             else:
                 current.right = Node(value)
+    
+    def print_bst(self, node, level = 0, nodeType = "Root: "):
+        '''this method prints tree'''
+        if node:
+            self.print_bst(node.right, level + 1, "-> ")
+            print("    " * level + nodeType + str(node.value))
+            self.print_bst(node.left, level + 1, "-> ")
