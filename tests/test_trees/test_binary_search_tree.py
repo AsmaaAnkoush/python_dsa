@@ -55,3 +55,16 @@ def test_search():
     assert bst.search(bst.root, 100) is False
     assert bst.search(bst.root, 18) is True
     assert bst.search(bst.root, 9) is False
+
+def test_map_bst():
+    bst: BST = BST()
+    bst.insert(10)
+    bst.insert(20)
+    bst.insert(5)
+    bst.insert(0)
+    bst.insert(7)
+    assert bst.root.value == 10
+    assert bst.root.right.value == 20
+    assert bst.root.left.value == 5
+    assert bst.root.left.right.value == 7
+    assert bst.root.left.left.value == 0
