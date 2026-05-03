@@ -99,6 +99,19 @@ class BST:
             maped_tree.root.right = right_tree.root
 
         return maped_tree
+    
+    def combine_func(self, initial, value):
+        return initial + value
+
+    def fold(self, root, combine_func, initial):
+        '''this function aggregate all tree values into a single result '''
+        if root is None:
+            return initial
+        result = combine_func(initial, root.value)
+        result = self.fold(root.left, combine_func, result)
+        result = self.fold(root.right, combine_func, result)
+        return result
+
 
 
 
