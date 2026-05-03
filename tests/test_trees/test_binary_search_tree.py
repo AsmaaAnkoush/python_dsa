@@ -59,6 +59,9 @@ def test_search():
 def tra_fun(x):
     return x*2
 
+def combine_func(initial, value):
+        return initial + value
+
 def test_map_bst():
     bst: BST = BST()
     bst.insert(10)
@@ -72,3 +75,12 @@ def test_map_bst():
     assert new_bst.root.left.value == 10
     assert new_bst.root.left.right.value == 14
     assert new_bst.root.left.left.value == 0
+
+def test_fold():
+    bst: BST = BST()
+    bst.insert(10)
+    bst.insert(20)
+    bst.insert(5)
+    bst.insert(0)
+    bst.insert(7)
+    assert bst.fold(bst.root, combine_func, 0) == 42
