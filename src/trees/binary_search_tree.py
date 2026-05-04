@@ -1,3 +1,4 @@
+from src.linked_lists.linked_list import LinkedList
 class Node:
     def __init__(self, value):
         self.value = value
@@ -14,7 +15,7 @@ class BST:
             self.root = Node(value)
         else:
             self.insert_at_true_position(self.root, value)
-    
+
     def insert_at_true_position(self, root , value):
         if value < root.value:
             # insert left 
@@ -28,12 +29,28 @@ class BST:
                 self.insert_at_true_position (root.right, value)
             else:
                 root.right = Node(value)
+
+    def insert_bst(self, root, value):
+        '''This Method inserts the node in true position of BST'''
+        if not root:
+            self.root = Node(value)
+        else: 
+            if value < root.value:
+                if root.left:
+                    self.insert_bst(root.left, value)
+                else:
+                    root.left = Node(value)
+            else:
+                if root.right:
+                    self.insert_bst(root.right, value)
+                else:
+                    root.right = Node(value)
     
-    def print_bst(self, root, level = 0, nodeType = "Root: "):
+    def print_bst(self, root, level = 0, node_type = "Root: "):
         '''This method prints tree'''
         if root:
             self.print_bst(root.right, level + 1, "R-> ")
-            print("    " * level + nodeType + str(root.value))
+            print("    " * level + node_type + str(root.value))
             self.print_bst(root.left, level + 1, "L-> ")
     
     def find_minimum(self, root):
@@ -111,11 +128,14 @@ class BST:
         result = self.fold(root.left, combine_func, result)
         result = self.fold(root.right, combine_func, result)
         return result
-
-
-
-
-
-
-
-
+    
+    def filter(self, root, predicate_func):
+        linked_list: LinkedList = LinkedList()
+        pass
+    
+    def in_order(self, root, linked_list):
+        if root is None:
+            return
+        self.in_order(root.left, linked_list)
+        linked_list.append_end(root.value)
+        self.in_order(root.right, linked_list)
