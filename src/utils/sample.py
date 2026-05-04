@@ -91,6 +91,9 @@ def tra_fun(x):
 def combine_func(initial, value):
         return initial + value
 
+def is_even(value):
+      return value % 2 == 0
+
 print("*" * 50)
 print("Binary Search Tree")
 bst: BST = BST()
@@ -120,3 +123,8 @@ print(linked_list)
 pre_order_list: LinkedList = LinkedList()
 bst.pre_order(bst.root, pre_order_list)
 print(pre_order_list)
+bst.print_bst(bst.root)
+
+filtered_list: LinkedList = LinkedList() 
+bst.filter(bst.root, is_even, filtered_list)
+print(filtered_list)
