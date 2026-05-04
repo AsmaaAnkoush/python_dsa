@@ -152,3 +152,13 @@ def test_filter():
     assert linked_list.index_of(6) == 1
     assert linked_list.index_of(20) == 2
     assert linked_list.index_of(18) == 3
+
+def test_get_height():
+    bst: BST = BST()
+    bst.insert(10)
+    bst.insert(20)
+    bst.insert(7)
+    bst.insert(25)
+    bst.insert(18)
+    bst.insert(6)
+    assert bst.get_height(bst.root) == 3
