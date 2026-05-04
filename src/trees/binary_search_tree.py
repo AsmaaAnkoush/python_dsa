@@ -146,6 +146,10 @@ class BST:
         if root is None:
             return
         linked_list.append_end(root.value)
-        self.in_order(root.left, linked_list)
-        self.in_order(root.right, linked_list)
+        self.pre_order(root.left, linked_list)
+        self.pre_order(root.right, linked_list)
+
+    
+
+
 
