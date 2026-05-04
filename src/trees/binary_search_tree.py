@@ -160,6 +160,21 @@ class BST:
         self.post_order(root.left, linked_list)
         self.post_order(root.right, linked_list)
         linked_list.append_end(root.value)
+    
+    def get_max(self, num1, num2):
+        if num1 > num2:
+            return num1 
+        return num2
+     
+    def get_height(self, root):
+        '''this method calculate the height of BST'''
+        if root is None:
+            return 0
+        left_height = self.get_height(root.left)
+        right_height = self.get_height(root.right)
+
+        return 1 + self.get_max(left_height, right_height)
+
 
 
 
