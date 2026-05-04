@@ -124,6 +124,7 @@ pre_order_list: LinkedList = LinkedList()
 bst.pre_order(bst.root, pre_order_list)
 print(pre_order_list)
 bst.print_bst(bst.root)
+print (f"the height of tree is {bst.get_height(bst.root)}")
 
 filtered_list: LinkedList = LinkedList() 
 bst.filter(bst.root, is_even, filtered_list)
