@@ -95,9 +95,25 @@ def test_in_order():
     bst.insert(7)
     linked_list: LinkedList = LinkedList()
     bst.in_order(bst.root, linked_list)
-    print(linked_list)
-    assert linked_list.index_of(20) == 0
-    assert linked_list.index_of(10) == 1
+    assert linked_list.index_of(0) == 0
+    assert linked_list.index_of(5) == 1
     assert linked_list.index_of(7) == 2
-    assert linked_list.index_of(5) == 3
-    assert linked_list.index_of(0) == 4
+    assert linked_list.index_of(10) == 3
+    assert linked_list.index_of(20) == 4
+
+def test_pre_order():
+    bst: BST = BST()
+    bst.insert(10)
+    bst.insert(20)
+    bst.insert(7)
+    bst.insert(25)
+    bst.insert(18)
+    bst.insert(6)
+    linked_list: LinkedList = LinkedList()
+    bst.pre_order(bst.root, linked_list)
+    assert linked_list.index_of(10) == 0
+    assert linked_list.index_of(6) == 1
+    assert linked_list.index_of(7) == 2
+    assert linked_list.index_of(18) == 3
+    assert linked_list.index_of(20) == 4
+    assert linked_list.index_of(25) == 5
