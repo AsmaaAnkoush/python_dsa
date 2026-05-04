@@ -1,4 +1,5 @@
-from src.trees.binary_search_tree import Node, BST
+from src.trees.binary_search_tree import BST
+from src.linked_lists.linked_list import LinkedList
 
 def test_insert():
     bst: BST = BST()
@@ -84,3 +85,19 @@ def test_fold():
     bst.insert(0)
     bst.insert(7)
     assert bst.fold(bst.root, combine_func, 0) == 42
+
+def test_in_order():
+    bst: BST = BST()
+    bst.insert(10)
+    bst.insert(20)
+    bst.insert(5)
+    bst.insert(0)
+    bst.insert(7)
+    linked_list: LinkedList = LinkedList()
+    bst.in_order(bst.root, linked_list)
+    print(linked_list)
+    assert linked_list.index_of(20) == 0
+    assert linked_list.index_of(10) == 1
+    assert linked_list.index_of(7) == 2
+    assert linked_list.index_of(5) == 3
+    assert linked_list.index_of(0) == 4
