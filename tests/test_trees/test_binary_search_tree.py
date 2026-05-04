@@ -117,3 +117,20 @@ def test_pre_order():
     assert linked_list.index_of(20) == 3
     assert linked_list.index_of(18) == 4
     assert linked_list.index_of(25) == 5
+
+def test_post_order():
+    bst: BST = BST()
+    bst.insert(10)
+    bst.insert(20)
+    bst.insert(7)
+    bst.insert(25)
+    bst.insert(18)
+    bst.insert(6)
+    linked_list: LinkedList = LinkedList()
+    bst.post_order(bst.root, linked_list)
+    assert linked_list.index_of(6) == 0
+    assert linked_list.index_of(7) == 1
+    assert linked_list.index_of(18) == 2
+    assert linked_list.index_of(25) == 3
+    assert linked_list.index_of(20) == 4
+    assert linked_list.index_of(10) == 5
