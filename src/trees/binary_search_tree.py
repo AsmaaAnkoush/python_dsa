@@ -149,7 +149,13 @@ class BST:
         self.pre_order(root.left, linked_list)
         self.pre_order(root.right, linked_list)
 
-    
+    def post_order(self, root, linked_list):
+        '''this function to traverse tree (left - right - root)'''
+        if root is None:
+            return
+        self.post_order(root.left, linked_list)
+        self.post_order(root.right, linked_list)
+        linked_list.append_end(root.value)
 
 
 
