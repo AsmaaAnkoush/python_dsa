@@ -129,10 +129,14 @@ class BST:
         result = self.fold(root.right, combine_func, result)
         return result
     
-    def filter(self, root, predicate_func):
-        linked_list: LinkedList = LinkedList()
-        pass
-    
+    def filter(self, root, predicate_func, filtered_list):
+        if root is None:
+            return 
+        if predicate_func(root.value) is True:
+            filtered_list.append_end(root.value)
+        self.filter(root.left, predicate_func, filtered_list)
+        self.filter(root.right, predicate_func, filtered_list)
+
     def in_order(self, root, linked_list):
         '''this function to traverse tree (left - root - right)'''
         if root is None:
