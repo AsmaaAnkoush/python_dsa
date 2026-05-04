@@ -112,8 +112,8 @@ def test_pre_order():
     linked_list: LinkedList = LinkedList()
     bst.pre_order(bst.root, linked_list)
     assert linked_list.index_of(10) == 0
-    assert linked_list.index_of(6) == 1
-    assert linked_list.index_of(7) == 2
-    assert linked_list.index_of(18) == 3
-    assert linked_list.index_of(20) == 4
+    assert linked_list.index_of(7) == 1
+    assert linked_list.index_of(6) == 2
+    assert linked_list.index_of(20) == 3
+    assert linked_list.index_of(18) == 4
     assert linked_list.index_of(25) == 5
