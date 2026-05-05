@@ -4,6 +4,7 @@ from ..linked_lists.doubly_linked_list import DoublyLinkedList
 from ..stacks.stack import Stack
 from ..linked_lists.circular_linked_list import CircularLinkedList
 from ..trees.binary_search_tree import BST
+from ..trees.avl_tree import AVL
 
 
 # to run the code 
@@ -129,3 +130,28 @@ print (f"the height of tree is {bst.get_height(bst.root)}")
 filtered_list: LinkedList = LinkedList() 
 bst.filter(bst.root, is_even, filtered_list)
 print(filtered_list)
+
+print("**" * 50)
+
+avl = AVL()
+print("AVL TREE")
+
+avl.root = avl.insert(avl.root, 10)
+avl.print_avl(avl.root)
+print("-" * 50)
+
+avl.root = avl.insert(avl.root, 20)
+avl.print_avl(avl.root)
+print("-" * 50)
+
+avl.root = avl.insert(avl.root, 30)
+avl.print_avl(avl.root)
+print("-" * 50)
+
+avl.root = avl.insert(avl.root, 40)
+avl.print_avl(avl.root)
+print("-" * 50)
+
+avl.root = avl.insert(avl.root, 12)
+avl.print_avl(avl.root)
+print("-" * 50)
