@@ -133,7 +133,7 @@ class AVL:
         return root
     
     def search(self, root, value) -> bool:
-        '''This function search if specific value is exists in BST'''
+        '''This function search if specific value is exists in AVL'''
         if not root:
             return False
         
@@ -147,6 +147,14 @@ class AVL:
         else:
             return True
 
+    def combine_func(self, initial, value):
+        return initial + value
 
-
-
+    def fold_avl(self, root, combine_func, initial):
+        '''this function aggregate all tree values into a single result '''
+        if root is None:
+            return initial
+        result = combine_func(initial, root.value)
+        result = self.fold_avl(root.left, combine_func, result)
+        result = self.fold_avl(root.right, combine_func, result)
+        return result
