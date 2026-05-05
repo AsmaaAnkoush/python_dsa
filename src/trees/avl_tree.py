@@ -85,7 +85,52 @@ class AVL:
             self.print_avl(root.right, level + 1, "R-> ")
             print("    " * level + node_type + str(root.value))
             self.print_avl(root.left, level + 1, "L-> ")
+    
+    def find_minimum(self, root):
+        '''This method returns the minimum value in subtree'''
+        while root.left:
+            root = root.left
+        return root
+    
+    def remove(self, root, value) -> AVL:
+        '''This method removes value from tree using successor logic'''
+        # if the tree was ended without find the value -> return Non
+        if not root:
+            return root
         
+        # search to the value
+        if value > root.value:
+            root.right = self.remove(root.right, value)
+        elif value < root.value:
+            root.left = self.remove(root.left, value)
+        # find the node we want to delete it 
+        else:
+            if not root.left:
+                return root.right
+            elif not root.right:
+                return root.left
+
+            successor = self.find_minimum(root.right)
+            root.value = successor.value
+            root.right = self.remove(root.right, successor.value)
+
+        root.height = 1 + self.get_max(self.get_height(root.left), self.get_height(root.right))
+        balance = self.get_balance(root)
+        # LL
+        if balance > 1 and self.get_balance(root.left) >= 0:
+            return self.right_rotate(root)
+        # LR
+        if balance > 1 and self.get_balance(root.left) < 0:
+            root.left = self.left_rotate(root.left)
+            return self.right_rotate(root)
+        # RR
+        if balance < -1 and self.get_balance(root.right) <= 0:
+            return self.left_rotate(root)
+        # RL
+        if balance < -1 and self.get_balance(root.right) > 0:
+            root.right = self.right_rotate(root.right)
+            return self.left_rotate(root)
+        return root
 
 
 
