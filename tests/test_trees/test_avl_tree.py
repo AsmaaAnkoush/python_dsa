@@ -29,3 +29,19 @@ def test_remove():
     assert avl.root.left.value == 12
     assert avl.root.right.left.value == 25
 
+def test_search():
+    avl: AVL = AVL()
+    avl.root = avl.insert(avl.root, 10)
+    avl.root = avl.insert(avl.root, 20)
+    avl.root = avl.insert(avl.root, 30)
+    avl.root = avl.insert(avl.root, 40)
+    avl.root = avl.insert(avl.root, 12)
+    avl.root = avl.insert(avl.root, 25)
+    
+    assert avl.search(avl.root, 10) is True
+    assert avl.search(avl.root, 20) is True
+    assert avl.search(avl.root, 50) is False
+    assert avl.search(avl.root, 25) is True
+    assert avl.search(avl.root, 100) is False
+    
+
