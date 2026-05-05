@@ -166,3 +166,27 @@ class AVL:
             filtered_list.append_end(root.value)
         self.filter(root.left, predicate_func, filtered_list)
         self.filter(root.right, predicate_func, filtered_list)
+    
+    def in_order(self, root, linked_list):
+        '''this function to traverse tree (left - root - right)'''
+        if root is None:
+            return
+        self.in_order(root.left, linked_list)
+        linked_list.append_end(root.value)
+        self.in_order(root.right, linked_list)
+    
+    def pre_order(self, root, linked_list):
+        '''this function to traverse tree (root - left - right)'''
+        if root is None:
+            return
+        linked_list.append_end(root.value)
+        self.pre_order(root.left, linked_list)
+        self.pre_order(root.right, linked_list)
+
+    def post_order(self, root, linked_list):
+        '''this function to traverse tree (left - right - root)'''
+        if root is None:
+            return
+        self.post_order(root.left, linked_list)
+        self.post_order(root.right, linked_list)
+        linked_list.append_end(root.value)
