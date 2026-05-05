@@ -158,3 +158,11 @@ class AVL:
         result = self.fold_avl(root.left, combine_func, result)
         result = self.fold_avl(root.right, combine_func, result)
         return result
+    
+    def filter(self, root, predicate_func, filtered_list):
+        if root is None:
+            return 
+        if predicate_func(root.value) is True:
+            filtered_list.append_end(root.value)
+        self.filter(root.left, predicate_func, filtered_list)
+        self.filter(root.right, predicate_func, filtered_list)
