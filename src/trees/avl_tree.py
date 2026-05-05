@@ -131,6 +131,21 @@ class AVL:
             root.right = self.right_rotate(root.right)
             return self.left_rotate(root)
         return root
+    
+    def search(self, root, value) -> bool:
+        '''This function search if specific value is exists in BST'''
+        if not root:
+            return False
+        
+        # search to the value
+        if value > root.value:
+            return self.search(root.right, value)
+        
+        elif value < root.value:
+            return self.search(root.left, value)
+        # find the node we want to find it 
+        else:
+            return True
 
 
 
