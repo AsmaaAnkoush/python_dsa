@@ -1,4 +1,6 @@
 from src.trees.avl_tree import AVL
+from src.linked_lists.linked_list import LinkedList
+
 
 def test_insert_avl():
     avl = AVL()
@@ -56,4 +58,24 @@ def test_fold_avl():
     avl.root = avl.insert(avl.root, 12)
     avl.root = avl.insert(avl.root, 25)
     assert avl.fold_avl(avl.root, combine_func, 0) == 137
+
+def is_even(value):
+      return value % 2 == 0
+
+def test_filter_avl():
+    avl: AVL = AVL()
+    avl.root = avl.insert(avl.root, 10)
+    avl.root = avl.insert(avl.root, 20)
+    avl.root = avl.insert(avl.root, 30)
+    avl.root = avl.insert(avl.root, 40)
+    avl.root = avl.insert(avl.root, 12)
+    avl.root = avl.insert(avl.root, 25)
+    linked_list: LinkedList = LinkedList()
+    avl.filter(avl.root, is_even, linked_list)
+    assert linked_list.index_of(20) == 0
+    assert linked_list.index_of(10) == 1
+    assert linked_list.index_of(12) == 2
+    assert linked_list.index_of(30) == 3
+    assert linked_list.index_of(40) == 4
+
 
