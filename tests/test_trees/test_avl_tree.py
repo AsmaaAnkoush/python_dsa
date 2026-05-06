@@ -78,4 +78,11 @@ def test_filter_avl():
     assert linked_list.index_of(30) == 3
     assert linked_list.index_of(40) == 4
 
+def test_is_balanced():
+    avl: AVL = AVL()
+    avl.root = avl.insert(avl.root, 10)
+    avl.root = avl.insert(avl.root, 20)
+    avl.root = avl.insert(avl.root, 30)
+    assert avl.is_balanced(avl.root) == True
+
 
