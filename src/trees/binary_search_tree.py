@@ -94,7 +94,7 @@ class BST:
         
         elif value < root.value:
             return self.search(root.left, value)
-        # find the node we want to delete it 
+        # find the node we want to find it 
         else:
             return True
     
@@ -161,12 +161,12 @@ class BST:
         self.post_order(root.right, linked_list)
         linked_list.append_end(root.value)
     
-    def get_max(self, num1, num2):
+    def get_max(self, num1, num2) -> int:
         if num1 > num2:
             return num1 
         return num2
      
-    def get_height(self, root):
+    def get_height(self, root) -> int:
         '''this method calculate the height of BST'''
         if root is None:
             return 0
@@ -174,7 +174,14 @@ class BST:
         right_height = self.get_height(root.right)
 
         return 1 + self.get_max(left_height, right_height)
+    
+    def is_balanced(self, root) -> bool:
+        if root is None:
+            return True
 
+        diff = abs(self.get_height(root.left) - self.get_height(root.right))
 
+        if diff > 1:
+            return False
 
-
+        return self.is_balanced(root.left) and self.is_balanced(root.right)
