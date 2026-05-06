@@ -162,3 +162,13 @@ def test_get_height():
     bst.insert(18)
     bst.insert(6)
     assert bst.get_height(bst.root) == 3
+
+def test_is_balanced():
+    bst: BST = BST()
+    bst.insert(10)
+    bst.insert(20)
+    bst.insert(30)
+    bst.insert(40)
+    bst.insert(50)
+    bst.insert(60)
+    assert bst.is_balanced(bst.root) == False
