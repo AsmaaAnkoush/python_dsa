@@ -190,3 +190,14 @@ class AVL:
         self.post_order(root.left, linked_list)
         self.post_order(root.right, linked_list)
         linked_list.append_end(root.value)
+    
+    def is_balanced(self, root) -> bool:
+        if root is None:
+            return True
+
+        diff = abs(self.get_height(root.left) - self.get_height(root.right))
+
+        if diff > 1:
+            return False
+
+        return self.is_balanced(root.left) and self.is_balanced(root.right)
