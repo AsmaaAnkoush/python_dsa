@@ -5,6 +5,7 @@ from ..stacks.stack import Stack
 from ..linked_lists.circular_linked_list import CircularLinkedList
 from ..trees.binary_search_tree import BST
 from ..trees.avl_tree import AVL
+from ..heaps.heap import MinHeap
 
 
 # to run the code 
@@ -166,3 +167,16 @@ avl.root = avl.remove(avl.root, 10)
 avl.print_avl(avl.root)
 print("-" * 50)
 
+print(avl.get_height(avl.root))
+
+print("**" * 50)
+print("HEAP")
+heap = MinHeap()
+heap.insert(34)
+heap.print_heap()
+heap.insert(8)
+heap.print_heap()
+heap.insert(12)
+heap.print_heap()
+heap.insert(4)
+heap.print_heap()
