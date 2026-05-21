@@ -16,9 +16,9 @@ class MinHeap:
     
     def insert(self, value):
         self.heap.append(value)
-        self.compare(len(self.heap) - 1)
+        self.compare_with_parent(len(self.heap) - 1)
 
-    def compare(self, index):
+    def compare_with_parent(self, index):
         while index > 0:
             if self.heap[index] < self.heap [self.parent(index)]:
                 self.swap(index, self.parent(index))
@@ -30,3 +30,11 @@ class MinHeap:
         for i in range(0,len(self.heap)):
                 print(f" {self.heap[i]} ", end = " ")
         print(end="\n")
+    
+    def search(self, value) -> bool:
+        if not self.heap:
+            raise IndexError("Heap is Empty")
+        for i in self.heap:
+            if i == value:
+                return True
+        return False
