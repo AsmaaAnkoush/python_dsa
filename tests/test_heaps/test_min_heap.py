@@ -1,4 +1,6 @@
 from src.heaps.heap import MinHeap
+def double_func(x):
+    return x * 2
 
 def test_insert():
     heap = MinHeap()
@@ -52,3 +54,13 @@ def test_delete():
     assert heap.index_of(12) == 5
     assert heap.index_of(8) == -1
 
+def test_for_each():
+    heap = MinHeap()
+    heap.insert(34)
+    heap.insert(8)
+    heap.insert(12)
+    heap.insert(4)
+    heap.for_each(double_func)
+    assert heap.index_of(16) == 1
+    assert heap.index_of(12) == -1
+    assert heap.index_of(8) == 0
