@@ -5,10 +5,10 @@ class MinHeap:
     def parent (self, i) -> int:
         return (i - 1) // 2
     
-    def left_child(self, i) -> int:
+    def left_child_index(self, i) -> int:
         return 2 * i + 1
     
-    def right_child(self, i) -> int:
+    def right_child_index(self, i) -> int:
         return 2 * i + 2
     
     def swap(self, i, j):
@@ -28,7 +28,7 @@ class MinHeap:
     
     def print_heap(self):
         for i in range(0,len(self.heap)):
-                print(f" {self.heap[i]} ", end = " ")
+            print(f" {self.heap[i]} ", end = " ")
         print(end="\n")
     
     def search(self, value) -> bool:
@@ -45,3 +45,31 @@ class MinHeap:
                 if self.heap[i] == value:
                     return i
         return -1
+    
+    def delete(self, value):
+        index_of_value = self.index_of(value)
+        if index_of_value == -1:
+            raise IndexError("value not exsist in the heap")
+        else:
+            # first step swap between last value and the value want to removw then remove the value 
+            last_index  = len(self.heap) - 1
+            self.swap(index_of_value, last_index )
+            self.heap.pop()
+        if index_of_value < len(self.heap):
+            self.compare_with_parent(index_of_value)
+            self.compare_with_childs(index_of_value)
+
+    
+    def compare_with_childs(self, index):
+        while True:
+            smallest = index
+            left = self.left_child_index(index)
+            right = self.right_child_index(index)
+            if len(self.heap) > left and self.heap[smallest] > self.heap[left] :
+                smallest = left
+            if len(self.heap) > right and self.heap[smallest] > self.heap[right] :
+                smallest = right
+            if smallest == index:
+                break
+            self.swap(index, smallest)
+            index = smallest
