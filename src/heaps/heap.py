@@ -38,3 +38,10 @@ class MinHeap:
             if i == value:
                 return True
         return False
+
+    def index_of(self, value) -> int:
+        if self.search(value) is True:
+            for i in range(len(self.heap)):
+                if self.heap[i] == value:
+                    return i
+        return -1
