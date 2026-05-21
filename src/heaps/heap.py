@@ -25,3 +25,8 @@ class MinHeap:
                 index = self.parent(index)
             else:
                 break
+    
+    def print_heap(self):
+        for i in range(0,len(self.heap)):
+                print(f" {self.heap[i]} ", end = " ")
+        print(end="\n")
