@@ -77,3 +77,9 @@ class MinHeap:
         if not self.heap:
             raise IndexError("Heap is Empty")
         return self.heap[0]
+    
+    def for_each(self, action):
+        if not self.heap:
+            raise IndexError("Heap is Empty")
+        for i in range(len(self.heap)):
+            self.heap[i] = (action)(self.heap[i])
