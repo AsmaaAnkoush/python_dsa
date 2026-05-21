@@ -59,7 +59,6 @@ class MinHeap:
             self.compare_with_parent(index_of_value)
             self.compare_with_childs(index_of_value)
 
-    
     def compare_with_childs(self, index):
         while True:
             smallest = index
@@ -73,3 +72,8 @@ class MinHeap:
                 break
             self.swap(index, smallest)
             index = smallest
+
+    def peek(self):
+        if not self.heap:
+            raise IndexError("Heap is Empty")
+        return self.heap[0]
