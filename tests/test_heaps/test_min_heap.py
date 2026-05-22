@@ -1,4 +1,4 @@
-from src.heaps.heap import MinHeap
+from src.heaps.heap_list import MinHeap
 def double_func(x):
     return x * 2
 
