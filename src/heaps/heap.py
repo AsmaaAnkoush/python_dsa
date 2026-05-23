@@ -131,4 +131,10 @@ class MinHeap:
             root.value = (action(root.value))
             self.for_each(root.right, action)
             self.for_each(root.left, action)
+    
+    def convert_array_to_heap(self, array: list) ->MinHeap:
+        heap: MinHeap = MinHeap()
+        for i in array:
+            heap.insert(i)
+        return heap
             
