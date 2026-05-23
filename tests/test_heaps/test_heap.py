@@ -103,3 +103,13 @@ def test_for_each():
     assert heap.index_of(heap.root, 16) == 1
     assert heap.index_of(heap.root, 24) == 2
     assert heap.index_of(heap.root, 68) == 3
+
+def test_convert_array_to_heap():
+    heap: MinHeap = MinHeap()
+    heap = heap.convert_array_to_heap([1, 10, 15, 7, 9, 20])
+    assert heap.root.value == 1
+    assert heap.root.left.value == 7
+    assert heap.root.right.value == 15
+    assert heap.root.left.left.value == 10
+    assert heap.root.left.right.value == 9
+    assert heap.root.right.left.value == 20
