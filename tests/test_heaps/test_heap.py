@@ -61,3 +61,11 @@ def test_last_node():
 
     assert heap.find_last_node(heap.root).value == 34
 
+def test_get_height():
+    heap = MinHeap()
+    heap.insert(34)
+    heap.insert(8)
+    heap.insert(12)
+    heap.insert(6)
+    heap.insert(9)
+    assert heap.get_height(heap.root) == 3
