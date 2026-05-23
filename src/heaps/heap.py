@@ -96,3 +96,33 @@ class MinHeap:
             last_node = self.find_last_node(root.left)
         return last_node
     
+    def delete(self, value):
+        target_node = self.find_node(self.root, value)
+        if target_node is None:
+            print("Value not found")
+            return
+        last_node = self.find_last_node(self.root)
+        print(f"the Last Node is {last_node.value}")
+        target_node.value = last_node.value
+
+        last_node_parent = last_node.parent
+        if last_node_parent:
+            if last_node_parent.left == last_node.value:
+                last_node_parent.left = None
+            elif last_node_parent.right == last_node.value:
+                last_node_parent.right = None
+        self.compare_with_parent(target_node)
+        self.compare_with_childs(target_node)
+
+    def compare_with_childs(self, node):
+        while node:
+            smallest = node
+            if node.left and node.left.value < smallest.value:
+                smallest = node.left
+            if node.right and node.right.value < smallest.value:
+                smallest = node.right
+            if smallest == node:
+                break
+            node.value, smallest.value = (smallest.value, node.value)
+            node = smallest
+
