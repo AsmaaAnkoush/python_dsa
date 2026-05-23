@@ -90,10 +90,9 @@ class MinHeap:
         if root is None:
             return None
         last_node = root
-        if root.right:
+        if root.right and self.get_height(root.right) >= self.get_height(root.left):
             last_node = self.find_last_node(root.right)
-        if root.left:
+        elif root.left:
             last_node = self.find_last_node(root.left)
         return last_node
-
-
+    
