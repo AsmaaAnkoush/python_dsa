@@ -26,7 +26,11 @@ class MinHeap:
             current.right = node
             node.parent = current
             return
-        self.insert_node(current.left, node)
+        
+        if self.get_height_min(current.left) == self.get_height_min(current.right) or (current.left.left == None or current.left.right == None ):
+            self.insert_node(current.left, node)
+        else:
+            self.insert_node(current.right, node)
 
     def compare_with_parent(self, node):
         while node.parent and node.parent.value > node.value:
@@ -76,6 +80,11 @@ class MinHeap:
         if root is None:
             return 0
         return 1 + max(self.get_height(root.left), self.get_height(root.right))
+    
+    def get_height_min(self, root) -> int:
+        if root is None:
+            return 0
+        return 1 + min(self.get_height(root.left), self.get_height(root.right))
 
     def find_last_node(self, root):
         if root is None:
@@ -86,3 +95,5 @@ class MinHeap:
         if root.left:
             last_node = self.find_last_node(root.left)
         return last_node
+
+
