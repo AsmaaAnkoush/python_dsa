@@ -11,3 +11,15 @@ def test_insert():
     assert heap.root.right.value == 12
     assert heap.root.left.left.value == 34
     assert heap.root.left.right.value == 9
+
+def test_search():
+    heap = MinHeap()
+    heap.insert(34)
+    heap.insert(8)
+    heap.insert(12)
+    heap.insert(6)
+    heap.insert(9)
+
+    assert heap.search(heap.root, 8) is True
+    assert heap.search(heap.root, 12) is True
+    assert heap.search(heap.root, 10) is False
