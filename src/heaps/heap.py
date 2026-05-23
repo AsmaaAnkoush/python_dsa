@@ -47,6 +47,15 @@ class MinHeap:
                 return True
         return(self.search(root.left, value) or self.search(root.right, value))
 
-
-
-        
+    def index_of(self, root, value, index = 0) -> int:
+        if root is None:
+            return -1
+        if root.value == value:
+            return index
+        left_result = self.index_of(root.left, value, (2*index+1))
+        if left_result != -1:
+            return left_result
+        right_result = self.index_of(root.right, value, (2*index+2))
+        if right_result != -1:
+            return right_result
+        return -1
