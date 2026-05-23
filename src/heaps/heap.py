@@ -71,3 +71,13 @@ class MinHeap:
         right_result = self.find_node(root.right, value)
         if right_result:
             return right_result
+
+    def find_last_node(self, root):
+        if root is None:
+            return None
+        last_node = root
+        if root.right:
+            last_node = self.find_last_node(root.right)
+        if root.left:
+            last_node = self.find_last_node(root.left)
+        return last_node
