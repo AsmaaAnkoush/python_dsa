@@ -39,6 +39,14 @@ class MinHeap:
             self.print_heap(root.right, level + 1, "R-> ")
             print("    " * level + node_type + str(root.value))
             self.print_heap(root.left, level + 1, "L-> ")
+    
+    def search(self, root, value) -> bool:
+        if root is None:
+            return False
+        if root.value == value:
+                return True
+        return(self.search(root.left, value) or self.search(root.right, value))
+
 
 
         
