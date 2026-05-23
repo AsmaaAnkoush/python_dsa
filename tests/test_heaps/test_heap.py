@@ -1,4 +1,6 @@
 from src.heaps.heap import MinHeap
+from src.heaps.heap import Node
+
 def test_insert():
     heap = MinHeap()
     heap.insert(34)
@@ -37,3 +39,14 @@ def test_index_of():
     assert heap.index_of(heap.root, 12) == 2
     assert heap.index_of(heap.root, 34) == 3
     assert heap.index_of(heap.root, 9) == 4
+
+def test_find_node():
+    heap = MinHeap()
+    heap.insert(34)
+    heap.insert(8)
+    heap.insert(12)
+    heap.insert(6)
+    heap.insert(9)
+
+    heap.find_node(heap.root, 34) == Node(34)
+    heap.find_node(heap.root, 8).left.value == 9
