@@ -50,3 +50,14 @@ def test_find_node():
 
     heap.find_node(heap.root, 34) == Node(34)
     heap.find_node(heap.root, 8).left.value == 9
+
+def test_last_node():
+    heap = MinHeap()
+    heap.insert(34)
+    heap.insert(8)
+    heap.insert(12)
+    heap.insert(6)
+    heap.insert(9)
+
+    assert heap.find_last_node(heap.root).value == 34
+
