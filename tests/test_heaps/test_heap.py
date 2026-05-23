@@ -59,7 +59,7 @@ def test_last_node():
     heap.insert(6)
     heap.insert(9)
 
-    assert heap.find_last_node(heap.root).value == 34
+    assert heap.find_last_node(heap.root).value == 9
 
 def test_get_height():
     heap = MinHeap()
@@ -69,3 +69,22 @@ def test_get_height():
     heap.insert(6)
     heap.insert(9)
     assert heap.get_height(heap.root) == 3
+
+def test_delete():
+    heap = MinHeap()
+    heap.insert(34)
+    heap.insert(8)
+    heap.insert(12)
+    heap.insert(6)
+    heap.insert(9)
+    heap.insert(11)
+    heap.insert(1)
+
+    heap.delete(1)
+    assert heap.search(heap.root, 1) is False
+    assert heap.root.value == 6
+    assert heap.root.left.value == 8
+    assert heap.root.right.value == 11
+    assert heap.root.left.left.value == 34
+    assert heap.root.left.right.value == 9
+    assert heap.root.right.left.value == 12
