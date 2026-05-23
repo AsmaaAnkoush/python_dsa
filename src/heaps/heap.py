@@ -59,3 +59,15 @@ class MinHeap:
         if right_result != -1:
             return right_result
         return -1
+    
+    def find_node(self, root, value):
+        if root is None:
+            return None
+        if root.value == value:
+            return root
+        left_result = self.find_node(root.left, value)
+        if left_result:
+            return left_result
+        right_result = self.find_node(root.right, value)
+        if right_result:
+            return right_result
