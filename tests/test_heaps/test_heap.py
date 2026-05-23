@@ -23,3 +23,17 @@ def test_search():
     assert heap.search(heap.root, 8) is True
     assert heap.search(heap.root, 12) is True
     assert heap.search(heap.root, 10) is False
+
+def test_index_of():
+    heap = MinHeap()
+    heap.insert(34)
+    heap.insert(8)
+    heap.insert(12)
+    heap.insert(6)
+    heap.insert(9)
+
+    assert heap.index_of(heap.root, 6) == 0
+    assert heap.index_of(heap.root, 8) == 1
+    assert heap.index_of(heap.root, 12) == 2
+    assert heap.index_of(heap.root, 34) == 3
+    assert heap.index_of(heap.root, 9) == 4
