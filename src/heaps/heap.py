@@ -125,4 +125,10 @@ class MinHeap:
                 break
             node.value, smallest.value = (smallest.value, node.value)
             node = smallest
-
+    
+    def for_each(self, root, action):
+        if root:
+            root.value = (action(root.value))
+            self.for_each(root.right, action)
+            self.for_each(root.left, action)
+            
