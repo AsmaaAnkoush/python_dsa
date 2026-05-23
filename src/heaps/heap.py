@@ -9,15 +9,17 @@ class MinHeap:
     def __init__(self):
         self.root = None
 
-    def insert(self, value):
-        node = Node(value)
+    def insert(self, value) -> MinHeap:
+        '''This function will fill the tree level by level and then make sure that the condition of heap'''
+        node: Node = Node(value)
         if self.root is None:
             self.root = node
             return
         self.insert_node(self.root, node)
         self.compare_with_parent(node)
         
-    def insert_node(self, current, node):
+    def insert_node(self, current: Node, node: Node):
+        '''This function finds the correct position to insert the node'''
         if current.left is None:
             current.left = node
             node.parent = current
@@ -32,26 +34,30 @@ class MinHeap:
         else:
             self.insert_node(current.right, node)
 
-    def compare_with_parent(self, node):
+    def compare_with_parent(self, node: Node):
+        '''This function used after insert the node , must check the condition of min heap(minimum is parent)'''
         while node.parent and node.parent.value > node.value:
             # swap
             node.value, node.parent.value = (node.parent.value, node.value)
             node = node.parent
 
-    def print_heap(self, root, level = 0, node_type = "Root: "):
+    def print_heap(self, root: Node, level = 0, node_type = "Root: "):
+        '''This method for human-readable representation'''
         if root:
             self.print_heap(root.right, level + 1, "R-> ")
             print("    " * level + node_type + str(root.value))
             self.print_heap(root.left, level + 1, "L-> ")
     
     def search(self, root, value) -> bool:
+        '''This function checks if value exist in heap'''
         if root is None:
             return False
         if root.value == value:
                 return True
         return(self.search(root.left, value) or self.search(root.right, value))
 
-    def index_of(self, root, value, index = 0) -> int:
+    def index_of(self, root: Node, value, index = 0) -> int:
+        '''This function returns the index of the value in heap'''
         if root is None:
             return -1
         if root.value == value:
@@ -64,7 +70,8 @@ class MinHeap:
             return right_result
         return -1
     
-    def find_node(self, root, value):
+    def find_node(self, root: Node, value):
+        '''This function returns the full node that have the given value'''
         if root is None:
             return None
         if root.value == value:
@@ -76,17 +83,19 @@ class MinHeap:
         if right_result:
             return right_result
     
-    def get_height(self, root) -> int:
+    def get_height(self, root: Node) -> int:
+        '''This function returns the height of the heap(tree)'''
         if root is None:
             return 0
         return 1 + max(self.get_height(root.left), self.get_height(root.right))
     
-    def get_height_min(self, root) -> int:
+    def get_height_min(self, root: Node) -> int:
         if root is None:
             return 0
         return 1 + min(self.get_height(root.left), self.get_height(root.right))
 
-    def find_last_node(self, root):
+    def find_last_node(self, root: Node):
+        '''This function returns the last node in the heap'''
         if root is None:
             return None
         last_node = root
@@ -96,7 +105,8 @@ class MinHeap:
             last_node = self.find_last_node(root.left)
         return last_node
     
-    def delete(self, value):
+    def delete(self, value) -> MinHeap:
+        '''This function deletes the value from the heap'''
         target_node = self.find_node(self.root, value)
         if target_node is None:
             print("Value not found")
@@ -114,7 +124,7 @@ class MinHeap:
         self.compare_with_parent(target_node)
         self.compare_with_childs(target_node)
 
-    def compare_with_childs(self, node):
+    def compare_with_childs(self, node: Node):
         while node:
             smallest = node
             if node.left and node.left.value < smallest.value:
@@ -126,13 +136,15 @@ class MinHeap:
             node.value, smallest.value = (smallest.value, node.value)
             node = smallest
     
-    def for_each(self, root, action):
+    def for_each(self, root: Node, action):
+        '''This function applies the action to the element of the heap'''
         if root:
             root.value = (action(root.value))
             self.for_each(root.right, action)
             self.for_each(root.left, action)
     
     def convert_array_to_heap(self, array: list) ->MinHeap:
+        '''This function converts list to heap'''
         heap: MinHeap = MinHeap()
         for i in array:
             heap.insert(i)
