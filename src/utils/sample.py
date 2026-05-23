@@ -197,15 +197,52 @@ print("HEAP")
 # heap2.delete(1)
 # heap2.print_heap()
 
-print("**" * 50)
-print("HEAP From Scratch")
-heap = MinHeap()
-heap.insert(34)
-heap.insert(8)
-heap.insert(12)
-heap.insert(6)
-heap.insert(9)
-heap.print_heap(heap.root)
+# print("**" * 50)
+# print("HEAP From Scratch")
+# heap = MinHeap()
+# heap.insert(34)
+# heap.insert(8)
+# heap.insert(12)
+# heap.insert(6)
+# heap.insert(9)
+# heap.print_heap(heap.root)
+# print("-" * 50)
+heap2 = MinHeap()
+heap2.insert(34)
+heap2.print_heap(heap2.root)
+print("-" * 20)
+
+heap2.insert(8)
+heap2.print_heap(heap2.root)
+print("-" * 20)
+
+heap2.insert(12)
+heap2.print_heap(heap2.root)
+print("-" * 20)
+
+heap2.insert(6)
+heap2.print_heap(heap2.root)
+print("-" * 20)
+
+heap2.insert(9)
+heap2.print_heap(heap2.root)
+print("-" * 20)
+
+heap2.insert(11)
+heap2.print_heap(heap2.root)
+print("-" * 20)
+
+heap2.insert(1)
+heap2.print_heap(heap2.root)
+print("-" * 20)
+
+heap2.print_heap(heap2.root)
+print("-" * 20)
+
+heap2.print_heap(heap2.root)
+heap2.delete(1)
+print("-" * 50)
+heap2.print_heap(heap2.root)
 
 
 
