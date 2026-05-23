@@ -14,7 +14,7 @@ class MinHeap:
         if self.root is None:
             self.root = node
             return
-        self.inser_node(self.root, node)
+        self.insert_node(self.root, node)
         self.compare_with_parent(node)
         
     def insert_node(self, current, node):
@@ -33,13 +33,12 @@ class MinHeap:
             # swap
             node.value, node.parent.value = (node.parent.value, node.value)
             node = node.parent
-    
-    def print_heap(self, node):
-        if node is None:
-            return 
-        print(node.value)
-        self.print_heap(node.left)
-        self.print_heap(node.right)
+
+    def print_heap(self, root, level = 0, node_type = "Root: "):
+        if root:
+            self.print_heap(root.right, level + 1, "R-> ")
+            print("    " * level + node_type + str(root.value))
+            self.print_heap(root.left, level + 1, "L-> ")
 
 
         
