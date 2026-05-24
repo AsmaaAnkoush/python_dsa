@@ -115,3 +115,12 @@ class HashTable:
                 result.append(current.value)
                 current = current.next
         return result
+    
+    def items(self) -> list:
+        result: list = []
+        for i in self.array:
+            current = i
+            while current:
+                result.append((current.key, current.value))
+                current = current.next
+        return result
