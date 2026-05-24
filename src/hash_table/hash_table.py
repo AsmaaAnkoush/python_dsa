@@ -106,3 +106,12 @@ class HashTable:
                 current = current.next
         return result
 
+    def values(self) -> list:
+        '''This function returns all values in Hash Table'''
+        result: list = []
+        for i in self.array:
+            current = i
+            while current:
+                result.append(current.value)
+                current = current.next
+        return result
