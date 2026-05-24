@@ -66,4 +66,24 @@ class HashTable:
             if current.key == key:
                 return current.value
             current = current.next
-        raise KeyError(f"key -> '{key}' not founded in hashTable")
+        return "key not found"
+
+    def remove(self, key):
+        '''This method will romove the key and its value from the hashTable'''
+        key_index = self.hash_key(key)
+        current = self.array[key_index]
+        prev = None
+        while current:
+            if current.key == key:
+                if prev == None:
+                    # just one key -> value in this index
+                    self.array[key_index] = None
+                else:
+                    prev.next = current.next
+                self.size -= 1
+                return
+            prev = current
+            current = current.next
+        return "key not found"
+
+
