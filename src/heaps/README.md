@@ -6,12 +6,12 @@
 ---
 ## 📦 Project Structure
 ```
-linked_lists/
+heaps/
 ├── heap.py
 ├── heap_list.py
 └── README.md
 ```
-## 📦 Time Complexity To Functions
+## 📦 Time And Space Complexity To Functions
 | function name       | Time complexity | Space complexity |
 |---------------------|-----------------|------------------|
 | insert              |  O(log n)       | O(log n)         |
