@@ -52,4 +52,11 @@ def test_values():
     hash_table.put("university", "Birzeit")
     assert "Asmaa" in hash_table.values()
 
+def test_items():
+    hash_table: HashTable = HashTable()
+    hash_table.put("name", "Asmaa")
+    hash_table.put("age", 25)
+    hash_table.put("university", "Birzeit")
+    assert ("name","Asmaa") in hash_table.items()
+
 
