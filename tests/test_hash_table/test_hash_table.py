@@ -30,3 +30,12 @@ def test_remove():
     assert hash_table.get("name") == "key not found"
     assert hash_table.size == 2
 
+def test_search():
+    hash_table: HashTable = HashTable()
+    hash_table.put("name", "Asmaa")
+    hash_table.put("age", 25)
+    hash_table.put("university", "Birzeit")
+    assert hash_table.search("weight") is False
+    assert hash_table.search("name") is True
+
+
