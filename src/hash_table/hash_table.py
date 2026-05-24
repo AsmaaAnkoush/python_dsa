@@ -1,8 +1,10 @@
+from typing import Optional
+
 class Node:
     def __init__(self, key, value):
         self.key = key
         self.value = value
-        self.next = None
+        self.next: Optional["Node"] = None
     
 class HashTable:
     def __init__(self, capacity = 16):
@@ -55,3 +57,12 @@ class HashTable:
                 self.put(current.key, current.value)
                 current = current.next
         print(f"the old size {old_size} and the new size {self.size} and must be equals")
+    
+    def get(self, key):
+        key_index = self.hash_key(key)
+        current = self.array[key_index]
+        while current:
+            if current.key == key:
+                return current.value
+            current = current.next
+        raise KeyError(f"key -> '{key}' not founded in hashTable")
