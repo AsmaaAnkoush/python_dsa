@@ -37,5 +37,12 @@ def test_search():
     hash_table.put("university", "Birzeit")
     assert hash_table.search("weight") is False
     assert hash_table.search("name") is True
+    
+def test_keys():
+    hash_table: HashTable = HashTable()
+    hash_table.put("name", "Asmaa")
+    hash_table.put("age", 25)
+    hash_table.put("university", "Birzeit")
+    assert hash_table.keys() == ["name", "university", "age"]
 
 
