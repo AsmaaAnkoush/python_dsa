@@ -7,7 +7,7 @@
 ---
 ## 📦 Project Structure
 ```
-linked_lists/
+queues/
 ├── queue_linked_list.py
 ├── queue_list.py
 ├── queue.py
