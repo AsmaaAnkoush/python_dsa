@@ -8,7 +8,7 @@
 
 ## 📦 Project Structure
 ```
-linked_lists/
+stacks/
 ├── stack_linked_list.py
 ├── stack_list.py
 ├── stack.py
