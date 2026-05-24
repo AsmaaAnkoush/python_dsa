@@ -59,6 +59,7 @@ class HashTable:
         print(f"the old size {old_size} and the new size {self.size} and must be equals")
     
     def get(self, key):
+        '''This method return the value of the given key'''
         key_index = self.hash_key(key)
         current = self.array[key_index]
         while current:
