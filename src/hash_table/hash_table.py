@@ -86,4 +86,14 @@ class HashTable:
             current = current.next
         return "key not found"
 
+    def search(self, key) -> bool:
+        '''This function return if the key exsists in hashTable'''
+        key_index = self.hash_key(key)
+        current = self.array[key_index]
+        while current:
+            if current.key == key:
+                return True
+            current = current.next
+        return False
+
 
