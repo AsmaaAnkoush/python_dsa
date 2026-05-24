@@ -124,3 +124,9 @@ class HashTable:
                 result.append((current.key, current.value))
                 current = current.next
         return result
+    
+    def print_hash(self):
+        result: str = ""
+        for key, value in self.items():
+            result += f"  {key}: {value}  "
+        return result
