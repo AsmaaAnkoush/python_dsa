@@ -95,5 +95,14 @@ class HashTable:
                 return True
             current = current.next
         return False
-
+    
+    def keys(self) -> list:
+        '''This function returns all keys in Hash Table'''
+        result: list = []
+        for i in self.array:
+            current = i
+            while current:
+                result.append(current.key)
+                current = current.next
+        return result
 
