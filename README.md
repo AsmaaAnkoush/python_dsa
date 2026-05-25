@@ -15,14 +15,13 @@
 ## 📦 Project Structure
 ```
 dsa-python/
-├── src ├── arrays/
+├── src ├── hash_table/
+|       ├── heaps/
 |       ├── linked_lists/
-|       ├── stacks/
 |       ├── queues/
+|       ├── sacks/
 |       ├── trees/
 |       ├── graphs/
-|       ├── heaps/
-|       ├── dynamic_programming/
 |       ├── utils/
 ├── tests
 ├── .gitignore
