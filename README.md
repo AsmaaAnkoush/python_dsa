@@ -10,6 +10,11 @@
 - Queue
 - Queue List
 - Queue Linked List
+- Hash Table
+- Heap
+- Binary Search Tree
+- AVL Tree
+
 ---
 
 ## 📦 Project Structure
