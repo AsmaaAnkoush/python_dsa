@@ -16,9 +16,9 @@ class MinHeap:
     
     def insert(self, value):
         self.heap.append(value)
-        self.compare_with_parent(len(self.heap) - 1)
+        self.heapify_up(len(self.heap) - 1)
 
-    def compare_with_parent(self, index):
+    def heapify_up(self, index):
         while index > 0:
             if self.heap[index] < self.heap [self.parent(index)]:
                 self.swap(index, self.parent(index))
@@ -57,9 +57,9 @@ class MinHeap:
             self.heap.pop()
         if index_of_value < len(self.heap):
             self.compare_with_parent(index_of_value)
-            self.compare_with_childs(index_of_value)
+            self.heapify_down(index_of_value)
 
-    def compare_with_childs(self, index):
+    def heapify_down(self, index):
         while True:
             smallest = index
             left = self.left_child_index(index)
