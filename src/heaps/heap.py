@@ -16,7 +16,7 @@ class MinHeap:
             self.root = node
             return
         self.insert_node(self.root, node)
-        self.compare_with_parent(node)
+        self.heapify_up(node)
         
     def insert_node(self, current: Node, node: Node):
         '''This function finds the correct position to insert the node'''
@@ -34,7 +34,7 @@ class MinHeap:
         else:
             self.insert_node(current.right, node)
 
-    def compare_with_parent(self, node: Node):
+    def heapify_up(self, node: Node):
         '''This function used after insert the node , must check the condition of min heap(minimum is parent)'''
         while node.parent and node.parent.value > node.value:
             # swap
@@ -121,10 +121,10 @@ class MinHeap:
                 last_node_parent.left = None
             elif last_node_parent.right == last_node.value:
                 last_node_parent.right = None
-        self.compare_with_parent(target_node)
-        self.compare_with_childs(target_node)
+        self.heapify_up(target_node)
+        self.heapify_down(target_node)
 
-    def compare_with_childs(self, node: Node):
+    def heapify_down(self, node: Node):
         while node:
             smallest = node
             if node.left and node.left.value < smallest.value:
